@@ -136,26 +136,6 @@ This portal contains:
             "Unit 1: HTML5, Tailwind CSS and Git"
         )
 
-        st.markdown("""
-### HTML5 Semantic Elements
-
-Semantic elements describe the purpose of content.
-
-Examples:
-
-- header
-- nav
-- main
-- section
-- article
-- footer
-
-Benefits:
-
-- Better SEO
-- Better Accessibility
-- Better Code Structure
-""")
 
 
     # ======================================
