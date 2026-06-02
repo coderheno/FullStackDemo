@@ -11,7 +11,7 @@ st.set_page_config(
     page_icon="🌐",
     layout="wide"
 )
-
+st.write("Secret Exists:", "GEMINI_API_KEY" in st.secrets)
 # ==========================================
 # GEMINI CONFIG
 # ==========================================
@@ -21,7 +21,7 @@ genai.configure(
 )
 
 model = genai.GenerativeModel(
-    "gemini-2.5-flash"
+    "gemini-2.0-flash-lite"
 )
 
 # ==========================================
