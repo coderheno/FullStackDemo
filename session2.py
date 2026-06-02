@@ -368,20 +368,12 @@ with chat_col:
         value=quick_question,
         height=120
     )
-    if st.button(
+if st.button(
     "🚀 Ask AI",
     use_container_width=True
 ):
 
-        st.info(
-        f"You asked: {question}"
-    )
-        if st.button(
-    "🚀 Ask AI",
-    use_container_width=True
-):
-
-            prompt = f"""
+    prompt = f"""
 Course Documents:
 
 {course_context}
@@ -389,6 +381,8 @@ Course Documents:
 Student Question:
 
 {question}
+
+Answer clearly and help students understand concepts.
 """
 
     try:
