@@ -101,15 +101,9 @@ with content_col:
     st.info(
         """
 This portal contains:
-
-• Unit Notes
-
 • Demo Programs
-
 • Lab Exercises
-
 • Course Outcomes
-
 • AI Tutor
 """
     )
