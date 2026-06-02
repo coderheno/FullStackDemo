@@ -130,7 +130,7 @@ This portal contains:
             "HTML5, CSS AND GITHUB"
         )
 
-
+        st.code("HTML5 New Elements – HTML5 Semantics –Canvas – HTML Media –Git-commit –rollback – remote repository – GitHub – merge conflict – CSS specificity rule – Pseudo selectors – media queries – flexbox – responsive  web design – transition –Tailwind responsive grid – Components (Navbar, tables, heroes, carousel, modal etc.,) – font awesome icons. Introduction to Core JavaScript - Use JavaScript to interact with some of the new HTML5 apis")
 
     # ======================================
     # DEMO TAB
