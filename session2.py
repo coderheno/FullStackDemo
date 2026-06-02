@@ -7,13 +7,13 @@ from pypdf import PdfReader
 # ==========================================
 
 st.set_page_config(
-    page_title="Full Stack Development - Unit 1",
+    page_title="Full Stack Development Portal",
     page_icon="🌐",
     layout="wide"
 )
 
 # ==========================================
-# PDF FUNCTIONS
+# PDF READER
 # ==========================================
 
 def read_pdf(pdf_path):
@@ -31,53 +31,322 @@ def read_pdf(pdf_path):
 
     return text
 
+# ==========================================
+# LOAD COURSE DOCUMENTS
+# ==========================================
 
 @st.cache_resource
 def load_course_documents():
 
     context = ""
 
-    context += read_pdf(
-        "Data/course_plan_doc.pdf"
-    )
+    try:
 
-    context += "\n"
+        context += read_pdf(
+            "Data/course_plan_doc.pdf"
+        )
 
-    context += read_pdf(
-        "Data/course_plan_espro.pdf"
-    )
+        context += "\n"
+
+        context += read_pdf(
+            "Data/course_plan_espro.pdf"
+        )
+
+    except Exception as e:
+
+        context = f"PDF Loading Error: {e}"
 
     return context
-
 
 course_context = load_course_documents()
 
 # ==========================================
-# PAGE TITLE
+# PAGE HEADER
 # ==========================================
 
 st.title("🌐 Full Stack Development")
 
-st.subheader(
-    "Unit 1: Building a Modern Responsive Landing Page"
+st.markdown(
+    """
+Learn:
+
+- HTML5
+- Tailwind CSS
+- JavaScript
+- React
+- Node.js
+- MongoDB
+- Git & GitHub
+"""
 )
 
 # ==========================================
-# LAYOUT
+# TWO COLUMN LAYOUT
 # ==========================================
 
-content_col, chat_col = st.columns([3, 1])
+content_col, chat_col = st.columns(
+    [3,1]
+)
 
 # ==========================================
-# AI TUTOR
+# LEFT COLUMN
+# ==========================================
+
+with content_col:
+
+    st.header(
+        "📚 Course Content"
+    )
+
+    st.info(
+        """
+This portal contains:
+
+• Unit Notes
+
+• Demo Programs
+
+• Lab Exercises
+
+• Course Outcomes
+
+• AI Tutor
+"""
+    )
+    # ======================================
+    # TABS
+    # ======================================
+
+    tab1, tab2, tab3, tab4 = st.tabs(
+        [
+            "📖 Notes",
+            "💻 Demo",
+            "📝 Activity",
+            "🎯 Outcomes"
+        ]
+    )
+
+    # ======================================
+    # NOTES TAB
+    # ======================================
+
+    with tab1:
+
+        st.subheader(
+            "Unit 1: HTML5, Tailwind CSS and Git"
+        )
+
+        st.markdown("""
+### HTML5 Semantic Elements
+
+Semantic elements describe the purpose of content.
+
+Examples:
+
+- header
+- nav
+- main
+- section
+- article
+- footer
+
+Benefits:
+
+- Better SEO
+- Better Accessibility
+- Better Code Structure
+""")
+
+        st.code(
+"""
+<header>
+<nav>
+<main>
+<section>
+<article>
+<footer>
+""",
+            language="html"
+        )
+
+        st.markdown("""
+### Tailwind CSS
+
+Tailwind is a utility-first CSS framework.
+
+Advantages:
+
+- Fast development
+- Responsive design
+- Reusable classes
+- Mobile-first approach
+""")
+
+        st.code(
+"""
+<div class="bg-blue-600
+            text-white
+            p-4
+            rounded">
+    Hello Tailwind
+</div>
+""",
+            language="html"
+        )
+
+        st.markdown("""
+### Git & GitHub
+
+Common Commands:
+
+- git init
+- git add .
+- git commit
+- git push
+
+Git helps developers track changes
+and collaborate effectively.
+""")
+
+        st.code(
+"""
+git init
+git add .
+git commit -m "Initial Commit"
+git push
+""",
+            language="bash"
+        )
+
+    # ======================================
+    # DEMO TAB
+    # ======================================
+
+    with tab2:
+
+        st.subheader(
+            "Landing Page Demonstration"
+        )
+
+        st.markdown("""
+Students will create:
+
+- Header
+- Navigation Bar
+- Hero Section
+- Feature Cards
+- Footer
+""")
+        st.code(
+"""
+<header class="bg-blue-700 text-white">
+    <nav>
+        <h1>TechLearn</h1>
+    </nav>
+</header>
+
+<section>
+    <h2>Learn Full Stack Development</h2>
+</section>
+
+<footer>
+    Copyright 2026
+</footer>
+""",
+            language="html"
+        )
+
+    # ======================================
+    # ACTIVITY TAB
+    # ======================================
+
+    with tab3:
+
+        st.subheader(
+            "Exercise 1"
+        )
+
+        st.markdown("""
+### Responsive Landing Page
+
+Build a landing page using:
+
+- HTML5 Semantic Tags
+- Tailwind CSS
+- Font Awesome Icons
+
+Requirements:
+
+✔ Header
+
+✔ Navigation Bar
+
+✔ Hero Section
+
+✔ Feature Cards
+
+✔ Footer
+
+Bonus:
+
+✔ Mobile Responsive Design
+""")
+
+        st.success(
+            "Submission: Push source code to GitHub Repository."
+        )
+
+    # ======================================
+    # COURSE OUTCOMES TAB
+    # ======================================
+
+    with tab4:
+
+        st.subheader(
+            "Course Outcomes"
+        )
+
+        st.markdown("""
+### CO1
+
+Apply HTML5 semantic features,
+Git version control and Tailwind CSS
+to develop structured websites.
+
+### CO2
+
+Implement client-side scripting using
+JavaScript for forms, events,
+browser APIs and JSON.
+
+### CO3
+
+Develop dynamic single-page
+applications using React.js.
+
+### CO4
+
+Design and optimize applications
+using Node.js.
+
+### CO5
+
+Develop Full Stack applications
+integrated with MongoDB.
+""")
+
+# ==========================================
+# RIGHT COLUMN - AI TUTOR
 # ==========================================
 
 with chat_col:
 
-    st.markdown("## 🤖 AI Tutor")
+    st.header(
+        "🤖 AI Tutor"
+    )
 
     st.caption(
-        "Ask doubts related to Unit 1, assessments, HTML, CSS, Tailwind or Full Stack concepts."
+        "Ask doubts related to syllabus, assessments, HTML, CSS, JavaScript, React, Git and Full Stack Development."
     )
 
     quick_question = st.selectbox(
@@ -86,12 +355,11 @@ with chat_col:
             "",
             "What is HTML5?",
             "Explain Semantic Tags",
+            "Explain Tailwind CSS",
             "Explain Flexbox",
-            "What is Tailwind CSS?",
-            "Difference between div and section",
-            "Explain Responsive Design",
-            "What is a Hero Section?",
-            "Why use Font Awesome?"
+            "What is Git?",
+            "What is Exercise 1?",
+            "What are the Course Outcomes?"
         ]
     )
 
@@ -100,93 +368,3 @@ with chat_col:
         value=quick_question,
         height=120
     )
-
-    if st.button(
-        "🚀 Ask AI",
-        use_container_width=True
-    ):
-
-        prompt = f"""
-You are Prof. Vijay's Full Stack Development AI Tutor.
-
-Primary Goal:
-Help students understand concepts,
-prepare for assessments,
-complete lab activities,
-and build practical skills.
-
-Course Documents:
-
-{course_context}
-
-Instructions:
-
-1. Use course documents as the primary source.
-
-2. Explain concepts clearly.
-
-3. Provide:
-   - Definitions
-   - Historical background
-   - Real-world examples
-   - Code samples
-   - Best practices
-
-4. Connect answers to Full Stack Development.
-
-5. For assessment questions,
-   prioritize course document information.
-
-6. For coding questions,
-   provide examples.
-
-7. Keep answers student-friendly.
-
-Student Question:
-
-{question}
-"""
-
-        try:
-
-            with st.spinner("Thinking..."):
-
-                client = genai.Client(
-                    api_key=st.secrets["GEMINI_API_KEY"]
-                )
-
-                response = client.models.generate_content(
-                    model="gemini-2.5-flash",
-                    contents=prompt
-                )
-
-            st.success("Response Generated")
-
-            st.markdown(
-                response.text
-            )
-
-        except Exception as e:
-
-            st.error(
-                f"Error: {e}"
-            )
-
-# ==========================================
-# COURSE CONTENT
-# ==========================================
-
-with content_col:
-
-    st.info("""
-Learning Outcomes
-
-• Understand HTML5 Semantic Elements
-
-• Understand Tailwind CSS
-
-• Understand Responsive Design
-
-• Build Navbar, Hero Section,
-  Cards and Footer
-""")
