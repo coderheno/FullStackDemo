@@ -368,3 +368,54 @@ with chat_col:
         value=quick_question,
         height=120
     )
+    if st.button(
+    "🚀 Ask AI",
+    use_container_width=True
+):
+
+        st.info(
+        f"You asked: {question}"
+    )
+        if st.button(
+    "🚀 Ask AI",
+    use_container_width=True
+):
+
+            prompt = f"""
+Course Documents:
+
+{course_context}
+
+Student Question:
+
+{question}
+"""
+
+    try:
+
+        with st.spinner(
+            "Thinking..."
+        ):
+
+            client = genai.Client(
+                api_key=st.secrets["GEMINI_API_KEY"]
+            )
+
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt
+            )
+
+        st.success(
+            "Response Generated"
+        )
+
+        st.markdown(
+            response.text
+        )
+
+    except Exception as e:
+
+        st.error(
+            f"Error: {e}"
+        )
