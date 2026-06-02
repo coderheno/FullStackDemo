@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 from pypdf import PdfReader
 
 # ==========================================
@@ -16,13 +16,6 @@ st.write("Secret Exists:", "GEMINI_API_KEY" in st.secrets)
 # GEMINI CONFIG
 # ==========================================
 
-genai.configure(
-    api_key=st.secrets["GEMINI_API_KEY"]
-)
-
-model = genai.GenerativeModel(
-    "gemini-2.0-flash-lite"
-)
 
 # ==========================================
 # PDF READER
@@ -161,26 +154,31 @@ Student Question:
 {question}
 """
 
-        try:
+try:
 
-            with st.spinner(
-                "Thinking..."
-            ):
+    with st.spinner(
+        "Thinking..."
+    ):
 
-                response = model.generate_content(
-                    prompt
-                )
+        client = genai.Client(
+            api_key=st.secrets["GEMINI_API_KEY"]
+        )
 
-            st.success(
-                "Response Generated"
-            )
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
 
-            st.markdown(
-                response.text
-            )
+    st.success(
+        "Response Generated"
+    )
 
-        except Exception as e:
+    st.markdown(
+        response.text
+    )
 
-            st.error(
-                f"Error: {e}"
-            )
+except Exception as e:
+
+    st.error(
+        f"Error: {e}"
+    )
