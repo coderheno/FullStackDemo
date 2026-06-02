@@ -11,14 +11,9 @@ st.set_page_config(
     page_icon="🌐",
     layout="wide"
 )
-st.write("Secret Exists:", "GEMINI_API_KEY" in st.secrets)
-# ==========================================
-# GEMINI CONFIG
-# ==========================================
-
 
 # ==========================================
-# PDF READER
+# PDF FUNCTIONS
 # ==========================================
 
 def read_pdf(pdf_path):
@@ -36,9 +31,6 @@ def read_pdf(pdf_path):
 
     return text
 
-# ==========================================
-# LOAD COURSE DOCUMENTS
-# ==========================================
 
 @st.cache_resource
 def load_course_documents():
@@ -57,6 +49,7 @@ def load_course_documents():
 
     return context
 
+
 course_context = load_course_documents()
 
 # ==========================================
@@ -70,12 +63,10 @@ st.subheader(
 )
 
 # ==========================================
-# TWO COLUMN LAYOUT
+# LAYOUT
 # ==========================================
 
-content_col, chat_col = st.columns(
-    [3,1]
-)
+content_col, chat_col = st.columns([3, 1])
 
 # ==========================================
 # AI TUTOR
@@ -103,12 +94,14 @@ with chat_col:
             "Why use Font Awesome?"
         ]
     )
-question = st.text_area(
-    "Ask Your Question",
-    value=quick_question,
-    height=120
-)
-if st.button(
+
+    question = st.text_area(
+        "Ask Your Question",
+        value=quick_question,
+        height=120
+    )
+
+    if st.button(
         "🚀 Ask AI",
         use_container_width=True
     ):
@@ -154,31 +147,46 @@ Student Question:
 {question}
 """
 
-try:
+        try:
 
-    with st.spinner(
-        "Thinking..."
-    ):
+            with st.spinner("Thinking..."):
 
-        client = genai.Client(
-            api_key=st.secrets["GEMINI_API_KEY"]
-        )
+                client = genai.Client(
+                    api_key=st.secrets["GEMINI_API_KEY"]
+                )
 
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=prompt
+                )
 
-    st.success(
-        "Response Generated"
-    )
+            st.success("Response Generated")
 
-    st.markdown(
-        response.text
-    )
+            st.markdown(
+                response.text
+            )
 
-except Exception as e:
+        except Exception as e:
 
-    st.error(
-        f"Error: {e}"
-    )
+            st.error(
+                f"Error: {e}"
+            )
+
+# ==========================================
+# COURSE CONTENT
+# ==========================================
+
+with content_col:
+
+    st.info("""
+Learning Outcomes
+
+• Understand HTML5 Semantic Elements
+
+• Understand Tailwind CSS
+
+• Understand Responsive Design
+
+• Build Navbar, Hero Section,
+  Cards and Footer
+""")
