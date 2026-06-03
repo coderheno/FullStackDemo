@@ -72,19 +72,12 @@ st.title(
 
 st.markdown("""
 Learn:
-
 ✅ HTML5
-
 ✅ Tailwind CSS
-
 ✅ JavaScript
-
 ✅ React
-
 ✅ Node.js
-
 ✅ MongoDB
-
 ✅ Git & GitHub
 """)
 
