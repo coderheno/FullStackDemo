@@ -2,85 +2,256 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>TechLearn Academy</title>
+
+  
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="bg-gray-100">
     <header class="bg-blue-700 text-white">
+
         <nav class="container mx-auto flex justify-between items-center p-4">
+
             <h1 class="text-2xl font-bold">
                 TechLearn
             </h1>
+
             <ul class="hidden md:flex gap-6">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Courses</a></li>
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
+
         </nav>
+
     </header>
-    <!-- HERO SECTION -->
+
+
+
     <main>
+
         <section class="bg-white py-16 text-center">
+
             <h2 class="text-4xl font-bold text-blue-700">
                 Learn Full Stack Development
             </h2>
+
             <p class="mt-4 text-gray-600">
                 Build modern web applications using HTML5,
                 CSS, JavaScript, React, Node.js and Next.js
             </p>
+
             <button
                 class="mt-6 bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition">
+
                 Get Started
+
             </button>
+
         </section>
+
+        <!-- HTML5 GEOLOCATION API -->
+
+        <section class="container mx-auto py-10 text-center">
+
+            <h3 class="text-2xl font-bold mb-4">
+                HTML5 Geolocation API
+            </h3>
+
+            <button
+                onclick="getLocation()"
+                class="bg-green-600 text-white px-6 py-3 rounded">
+
+                Find My Location
+
+            </button>
+
+            <p id="location"
+               class="mt-4 text-gray-700">
+            </p>
+
+        </section>
+
+        <!-- LOCAL STORAGE API -->
+
+        <section class="container mx-auto py-10 text-center">
+
+            <h3 class="text-2xl font-bold mb-4">
+                HTML5 Local Storage API
+            </h3>
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter Your Name"
+                class="border p-3 rounded w-64">
+
+            <button
+                onclick="saveName()"
+                class="bg-blue-600 text-white px-4 py-3 rounded">
+
+                Save
+
+            </button>
+
+            <button
+                onclick="loadName()"
+                class="bg-purple-600 text-white px-4 py-3 rounded">
+
+                Load
+
+            </button>
+
+            <p id="savedName"
+               class="mt-4 font-bold text-green-700">
+            </p>
+
+        </section>
+
         <!-- FEATURES SECTION -->
+
         <section class="container mx-auto py-12 px-6">
+
             <h3 class="text-3xl text-center font-bold mb-8">
                 Our Features
             </h3>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- CARD 1 -->
+
                 <article class="bg-white p-6 rounded-lg shadow">
+
                     <i class="fas fa-laptop-code text-4xl text-blue-700"></i>
+
                     <h4 class="text-xl font-bold mt-4">
                         Coding Skills
                     </h4>
+
                     <p class="text-gray-600 mt-2">
                         Learn industry-ready programming and development skills.
                     </p>
+
                 </article>
-                <!-- CARD 2 -->
+
                 <article class="bg-white p-6 rounded-lg shadow">
+
                     <i class="fas fa-cloud text-4xl text-green-600"></i>
+
                     <h4 class="text-xl font-bold mt-4">
                         Cloud Learning
                     </h4>
+
                     <p class="text-gray-600 mt-2">
                         Understand deployment and cloud technologies.
                     </p>
+
                 </article>
-                <!-- CARD 3 -->
+
                 <article class="bg-white p-6 rounded-lg shadow">
+
                     <i class="fas fa-robot text-4xl text-purple-600"></i>
+
                     <h4 class="text-xl font-bold mt-4">
                         AI Integration
                     </h4>
+
                     <p class="text-gray-600 mt-2">
                         Build intelligent applications using modern AI tools.
                     </p>
+
                 </article>
+
             </div>
+
         </section>
+
+        
+        <!-- VIDEO API -->
+
+        <section class="container mx-auto py-10 text-center">
+
+            <h3 class="text-2xl font-bold mb-4">
+                HTML5 Video API
+            </h3>
+
+            <video width="600"
+                   controls>
+
+                <source src="intro.mp4"
+                        type="video/mp4">
+
+            </video>
+
+        </section>
+
     </main>
+
     <!-- FOOTER -->
+
     <footer class="bg-gray-900 text-white text-center p-6">
+
         <p>
-            © 2026 TechLearn Academy | Full Stack Development
+            © 2026 TechLearn Academy |
+            Full Stack Development
         </p>
+
     </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        document.getElementById(
+                            "location"
+                        ).innerHTML =
+                            "Latitude: "
+                            + position.coords.latitude
+                            + "<br>Longitude: "
+                            + position.coords.longitude;
+                    }
+                );
+            }
+            else {
+                document.getElementById(
+                    "location"
+                ).innerHTML =
+                    "Geolocation not supported.";
+            }
+        }
+
+        function saveName() {
+            let name =
+                document.getElementById(
+                    "studentName"
+                ).value;
+
+            localStorage.setItem(
+                "student",
+                name
+            );
+            alert(
+                "Name Saved Successfully"
+            );
+        }
+        function loadName() {
+            let savedName =
+                localStorage.getItem(
+                    "student"
+                );
+            document.getElementById(
+                "savedName"
+            ).innerHTML =
+                "Welcome " + savedName;
+        }
+    </script>
 </body>
 </html>
