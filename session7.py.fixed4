@@ -1,0 +1,4810 @@
+import streamlit as st
+import json
+
+# --------------------------------------------------
+# MODULE 1 : JAVASCRIPT OBJECTS
+# --------------------------------------------------
+
+st.title("📦 Module 1 : JavaScript Objects")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand JavaScript Objects
+
+✅ Create Objects
+
+✅ Access Object Properties
+
+✅ Add and Update Properties
+
+✅ Understand Real-world Applications
+
+✅ Connect Objects with Forms and JSON
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ Why Do We Need Objects?")
+
+st.markdown("""
+Imagine a student.
+
+A student has:
+
+- Register Number
+- Name
+- Course
+- Email
+- Mobile
+
+Can we store all this information in a single variable?
+
+❌ No
+
+Instead, JavaScript provides **Objects**.
+
+Objects help us group related information together.
+""")
+
+st.info("""
+Real-world Examples
+
+👨 Student
+
+📦 Product
+
+👩 Employee
+
+🎬 Movie
+
+📚 Course
+
+🏥 Patient
+""")
+
+# --------------------------------------------------
+# OBJECT CONCEPT
+# --------------------------------------------------
+
+st.header("2️⃣ Understanding Objects")
+
+st.markdown("""
+A JavaScript Object is a collection of key-value pairs.
+
+General Syntax:
+""")
+
+st.code("""
+const objectName = {
+
+    key1 : value1,
+
+    key2 : value2,
+
+    key3 : value3
+
+};
+""", language="javascript")
+
+st.subheader("Student Object Example")
+
+st.code("""
+const student = {
+
+    regno : "2472101",
+
+    name : "John",
+
+    course : "BCA"
+
+};
+""", language="javascript")
+
+st.success("""
+Object = Student
+
+Keys = regno, name, course
+
+Values = 2472101, John, BCA
+""")
+
+# --------------------------------------------------
+# VISUAL EXPLANATION
+# --------------------------------------------------
+
+st.header("3️⃣ Visual Representation")
+
+st.markdown("""
+```text
+Student Object
+
+├── regno : 2472101
+
+├── name : John
+
+└── course : BCA
+
+""")
+
+# --------------------------------------------------
+# INTERACTIVE DEMO
+# --------------------------------------------------
+
+st.header("4️⃣ Interactive Object Generator")
+
+name = st.text_input("Student Name")
+
+regno = st.text_input("Register Number")
+
+course = st.text_input("Course")
+
+if st.button("Generate Object"):
+
+    student = {
+
+        "regno": regno,
+
+        "name": name,
+
+#     "course": course
+
+# }
+
+st.subheader("Generated Object")
+
+st.json(student)
+# --------------------------------------------------
+# ACCESSING PROPERTIES
+# --------------------------------------------------
+
+st.header("5️⃣ Accessing Object Properties")
+
+st.markdown("""
+Properties can be accessed using:
+
+Dot Notation
+Bracket Notation
+""")
+
+st.code("""
+const student = {
+
+name : "John",
+
+course : "BCA"
+
+};
+
+console.log(student.name);
+
+console.log(student["course"]);
+""", language="javascript")
+
+st.success("""
+Output
+
+John
+
+BCA
+""")
+
+# --------------------------------------------------
+# ADDING PROPERTIES
+# --------------------------------------------------
+
+st.header("6️⃣ Adding New Properties")
+
+st.code("""
+student.age = 21;
+
+student.email = "john@gmail.com";
+""", language="javascript")
+
+st.info("""
+New properties can be added at any time.
+""")
+
+# --------------------------------------------------
+# UPDATING PROPERTIES
+# --------------------------------------------------
+
+st.header("7️⃣ Updating Properties")
+
+st.code("""
+student.name = "Mary";
+""", language="javascript")
+
+st.success("""
+Before
+
+John
+
+After
+
+Mary
+""")
+
+# --------------------------------------------------
+# DELETING PROPERTIES
+# --------------------------------------------------
+
+st.header("8️⃣ Deleting Properties")
+
+st.code("""
+delete student.email;
+""", language="javascript")
+
+st.warning("""
+The property will be permanently removed.
+""")
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Classroom Activity")
+
+st.markdown("""
+Create Objects for:
+
+Employee
+Product
+Movie
+Library Book
+Hospital Patient
+
+Identify:
+
+Object Name
+Keys
+Values
+""")
+# --------------------------------------------------
+# MINI QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+answer = st.radio(
+
+"Which of the following is a JavaScript Object?",
+
+[
+
+    "let age = 20",
+
+    "const student = {name:'John'}",
+
+    "const names = ['A','B']",
+
+    "console.log('Hello')"
+
+# ]
+
+# )
+
+if answer == "const student = {name:'John'}":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+    CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Objects store data.
+
+But where does the data come from?
+
+👇
+
+Forms
+
+👇
+
+Users enter data through forms.
+
+In the next module, we will learn:
+
+✅ JavaScript Forms
+
+✅ Form Inputs
+
+✅ Reading User Data
+
+✅ Form Validation
+
+which eventually leads us to Login Systems and Full Stack Development.
+""")
+# --------------------------------------------------
+# NESTED OBJECTS
+# --------------------------------------------------
+
+st.header("9️⃣ Nested Objects")
+
+st.markdown("""
+Objects can contain other objects.
+
+This is called a Nested Object.
+
+Real-world Example:
+
+A Student has an Address.
+""")
+
+st.code("""
+const student = {
+
+    regno : "2472101",
+
+    name : "John",
+
+    address : {
+
+        city : "Bangalore",
+
+        state : "Karnataka",
+
+        country : "India"
+
+    }
+
+};
+""", language="javascript")
+
+st.markdown("""
+### Visual Representation
+
+```text
+Student
+│
+├── regno
+├── name
+│
+└── address
+     │
+     ├── city
+     ├── state
+     └── country
+
+""")
+
+st.code("""
+console.log(student.address.city);
+
+console.log(student.address.state);
+""", language="javascript")
+
+st.success("""
+Output
+
+Bangalore
+
+Karnataka
+""")
+
+# --------------------------------------------------
+# INTERACTIVE NESTED OBJECT
+# --------------------------------------------------
+
+st.subheader("Nested Object Generator")
+
+city = st.text_input("City")
+
+state = st.text_input("State")
+
+country = st.text_input("Country")
+
+if st.button("Generate Nested Object"):
+
+    student_obj = {
+
+        "name": "Student",
+
+        "address": {
+
+            "city": city,
+
+            "state": state,
+
+#         "country": country
+
+#     }
+
+# }
+
+st.json(student_obj)
+# --------------------------------------------------
+# ARRAY OF OBJECTS
+# --------------------------------------------------
+
+st.header("🔟 Array of Objects")
+
+st.markdown("""
+Most real-world applications store multiple records.
+
+For example:
+
+Student List
+Product List
+Employee List
+
+These are represented using Arrays of Objects.
+""")
+
+st.code("""
+const students = [
+
+{
+    regno : "101",
+    name : "John"
+},
+
+{
+    regno : "102",
+    name : "Mary"
+},
+
+{
+    regno : "103",
+    name : "David"
+}
+
+];
+""", language="javascript")
+
+st.info("""
+Think of this as a Database Table.
+""")
+
+st.markdown("""
+
+Students
+
+Row 1 → Object
+
+Row 2 → Object
+
+Row 3 → Object
+
+""")
+
+st.code("""
+console.log(students[0].name);
+
+console.log(students[1].name);
+""", language="javascript")
+
+st.success("""
+Output
+
+John
+
+Mary
+""")
+
+# --------------------------------------------------
+# DATABASE SIMULATION
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Student Database Simulation")
+
+student_data = [
+
+{
+    "regno":"101",
+    "name":"John",
+#     "course":"BCA"
+},
+
+{
+    "regno":"102",
+    "name":"Mary",
+#     "course":"BSc"
+},
+
+{
+    "regno":"103",
+    "name":"David",
+#     "course":"MCA"
+# }
+
+# ]
+
+st.dataframe(student_data)
+
+st.success("""
+In real applications,
+
+Data from databases is usually received in this format.
+""")
+
+# --------------------------------------------------
+# OBJECT METHODS
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Object Methods")
+
+st.markdown("""
+Objects can also contain Functions.
+
+These functions are called Methods.
+""")
+
+st.code("""
+const student = {
+
+name : "John",
+
+greet : function(){
+
+    return "Welcome";
+
+}
+
+};
+
+console.log(student.greet());
+""", language="javascript")
+
+st.success("""
+Output
+
+Welcome
+""")
+
+# --------------------------------------------------
+# REAL WORLD CONNECTION
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Real World Mapping")
+
+mapping = {
+
+"Application":[
+    "Amazon",
+    "Netflix",
+    "Instagram",
+    "Student Portal",
+    "Hospital System"
+],
+
+"Object Example":[
+    "Product",
+    "Movie",
+    "User",
+    "Student",
+    "Patient"
+# ]
+
+# }
+
+st.table(mapping)
+
+# --------------------------------------------------
+# JSON INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣4️⃣ Introduction to JSON")
+
+st.markdown("""
+Objects are used inside JavaScript.
+
+But how do we send data over the Internet?
+
+Answer:
+
+JSON
+
+(JavaScript Object Notation)
+""")
+
+st.code("""
+const student = {
+
+name : "John",
+
+course : "BCA"
+
+};
+""", language="javascript")
+
+st.markdown("### Equivalent JSON")
+
+st.code("""
+{
+"name":"John",
+"course":"BCA"
+}
+""", language="json")
+
+st.info("""
+JSON is the standard format used in APIs,
+Servers,
+Databases,
+and Full Stack Applications.
+""")
+
+# --------------------------------------------------
+# WHY JSON?
+# --------------------------------------------------
+
+st.header("1️⃣5️⃣ Why JSON?")
+
+st.markdown("""
+
+Browser
+    ↓
+JSON
+    ↓
+Server
+    ↓
+JSON
+    ↓
+Browser
+
+""")
+
+st.success("""
+JSON acts as a common language between applications.
+""")
+
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Create an object for:
+
+🎓 College Course
+
+Include:
+
+Course Code
+Course Name
+Credits
+Faculty Name
+Duration
+
+Try creating a nested object for Faculty details.
+""")
+
+# --------------------------------------------------
+# SELF CHECK
+# --------------------------------------------------
+
+st.header("📝 Self Check Quiz")
+
+q1 = st.radio(
+
+"Which symbol is used to create an Object in JavaScript?",
+
+["()", "[]", "{}", "<>"],
+
+key="objquiz"
+
+# )
+
+if q1 == "{}":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+    SUMMARY
+# --------------------------------------------------
+
+st.header("📚 Module Summary")
+
+st.success("""
+In this module you learned:
+
+✅ JavaScript Objects
+
+✅ Object Properties
+
+✅ Accessing Properties
+
+✅ Adding Properties
+
+✅ Updating Properties
+
+✅ Deleting Properties
+
+✅ Nested Objects
+
+✅ Arrays of Objects
+
+✅ Object Methods
+
+✅ Introduction to JSON
+
+These concepts form the foundation for:
+
+➡ Forms
+
+➡ Events
+
+➡ Fetch API
+
+➡ Express.js
+
+➡ Full Stack Development
+""")
+
+# --------------------------------------------------
+# NEXT MODULE
+# --------------------------------------------------
+
+st.header("🚀 Coming Up Next")
+
+st.info("""
+Objects store data.
+
+But where does the data come from?
+
+👇
+
+Forms
+
+Users enter data using forms.
+
+In Module 2 we will learn:
+
+✅ Form Elements
+
+✅ Input Fields
+
+✅ Buttons
+
+✅ Reading User Input
+
+✅ Form Validation
+
+✅ Registration Forms
+
+which eventually leads us to Login Systems.
+""")
+# --------------------------------------------------
+# MODULE 2 : JAVASCRIPT FORMS
+# --------------------------------------------------
+
+st.title("📝 Module 2 : JavaScript Forms")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand HTML Forms
+
+✅ Understand Form Elements
+
+✅ Read User Input using JavaScript
+
+✅ Validate Form Data
+
+✅ Build Interactive Forms
+
+✅ Connect Forms with Objects
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ What is a Form?")
+
+st.markdown("""
+A Form is used to collect information from users.
+
+Examples:
+
+🎓 Student Registration
+
+🛒 Product Order
+
+🏥 Patient Registration
+
+✈️ Travel Booking
+
+📅 Event Registration
+
+🔑 Login Page
+""")
+
+st.info("""
+Without forms, websites become read-only.
+
+Forms make websites interactive.
+""")
+
+# --------------------------------------------------
+# REAL WORLD ANALOGY
+# --------------------------------------------------
+
+st.header("2️⃣ Real World Analogy")
+
+st.markdown("""
+Imagine a College Admission Form.
+
+Student enters:
+
+- Name
+- Register Number
+- Email
+- Mobile Number
+
+The information is then processed and stored.
+
+The same process happens in web applications.
+""")
+
+st.markdown("""
+```text
+User
+   ↓
+Form
+   ↓
+JavaScript
+   ↓
+Validation
+   ↓
+Processing
+
+""")
+
+# --------------------------------------------------
+# FORM ELEMENTS
+# --------------------------------------------------
+
+st.header("3️⃣ Common Form Elements")
+
+st.markdown("""
+HTML provides various form controls.
+""")
+
+form_elements = {
+
+"Element":[
+
+    "Text Box",
+
+    "Password",
+
+    "Radio Button",
+
+    "Checkbox",
+
+    "Dropdown",
+
+    "Text Area",
+
+    "Button"
+
+],
+
+"Purpose":[
+
+    "Enter text",
+
+    "Enter password",
+
+    "Single choice",
+
+    "Multiple choice",
+
+    "Select option",
+
+    "Large text",
+
+    "Perform action"
+
+# ]
+
+# }
+
+st.table(form_elements)
+
+# --------------------------------------------------
+# TEXT INPUT
+# --------------------------------------------------
+
+st.header("4️⃣ Text Input")
+
+st.code("""
+<input type="text" id="name" placeholder="Enter Name">
+""", language="html")
+
+name_demo = st.text_input("Demo : Enter Your Name")
+
+if name_demo:
+
+    st.success(f"Hello {name_demo}")
+# --------------------------------------------------
+# PASSWORD FIELD
+# --------------------------------------------------
+
+st.header("5️⃣ Password Input")
+
+st.code("""
+<input type="password" id="password">
+""", language="html")
+
+pwd = st.text_input(
+
+"Demo Password",
+
+type="password"
+
+# )
+
+if pwd:
+
+    st.info("Password Entered Successfully")
+# --------------------------------------------------
+# RADIO BUTTON
+# --------------------------------------------------
+
+st.header("6️⃣ Radio Buttons")
+
+st.code("""
+<input type="radio">
+""", language="html")
+
+gender = st.radio(
+
+"Select Gender",
+
+[
+
+    "Male",
+
+    "Female",
+
+    "Other"
+
+# ]
+
+# )
+
+st.success(f"Selected : {gender}")
+
+# --------------------------------------------------
+CHECKBOX
+# --------------------------------------------------
+
+st.header("7️⃣ Checkboxes")
+
+agree = st.checkbox(
+
+"I Agree to Terms and Conditions"
+
+# )
+
+if agree:
+
+    st.success("Terms Accepted")
+# --------------------------------------------------
+    DROPDOWN
+# --------------------------------------------------
+
+st.header("8️⃣ Dropdown")
+
+course = st.selectbox(
+
+"Select Course",
+
+[
+
+    "BCA",
+
+    "BSc",
+
+    "MCA",
+
+    "MBA"
+
+# ]
+
+# )
+
+st.success(course)
+
+# --------------------------------------------------
+# TEXT AREA
+# --------------------------------------------------
+
+st.header("9️⃣ Text Area")
+
+feedback = st.text_area(
+
+"Feedback"
+
+# )
+
+if feedback:
+
+    st.info(feedback)
+# --------------------------------------------------
+    BUTTONS
+# --------------------------------------------------
+
+st.header("🔟 Buttons")
+
+st.code("""
+<button>
+
+Submit
+
+</button> """, language="html")
+
+if st.button("Click Me"):
+
+    st.success("Button Clicked")
+# --------------------------------------------------
+# WHY FORMS?
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Why Do We Need Forms?")
+
+st.markdown("""
+Forms allow us to:
+
+✅ Collect Data
+
+✅ Validate Data
+
+✅ Store Data
+
+✅ Send Data to Servers
+
+✅ Create User Accounts
+
+✅ Process Transactions
+""")
+
+# --------------------------------------------------
+# FORM TO OBJECT
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Forms + Objects")
+
+st.markdown("""
+User enters data through a form.
+
+JavaScript converts the data into an Object.
+""")
+
+st.code("""
+const student = {
+
+name : name,
+
+email : email,
+
+course : course
+
+};
+""", language="javascript")
+
+st.markdown("""
+
+Form
+   ↓
+JavaScript
+   ↓
+Object
+
+""")
+
+# --------------------------------------------------
+# INTERACTIVE FORM
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Student Registration Form")
+
+student_name = st.text_input(
+
+"Student Name",
+
+key="student_name"
+
+# )
+
+student_email = st.text_input(
+
+"Email",
+
+key="student_email"
+
+# )
+
+student_course = st.selectbox(
+
+"Course",
+
+[
+
+    "BCA",
+
+    "BSc",
+
+    "MCA"
+
+],
+
+key="student_course"
+
+# )
+
+if st.button("Generate Student Object"):
+
+    student_obj = {
+
+        "name": student_name,
+
+        "email": student_email,
+
+#     "course": student_course
+
+# }
+
+st.json(student_obj)
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Classroom Activity")
+
+st.markdown("""
+Create Forms for:
+
+Event Registration
+Leave Application
+Product Order
+Patient Registration
+Appointment Booking
+""")
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Design a form for your selected project domain.
+
+Examples:
+
+Academic
+→ Course Registration
+
+Healthcare
+→ Doctor Appointment
+
+Travel
+→ Ticket Booking
+
+Service
+→ Service Request Form
+
+Retail
+→ Product Order Form
+""")
+
+# --------------------------------------------------
+QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+quiz = st.radio(
+
+"Which HTML element is used to collect user input?",
+
+[
+
+    "<table>",
+
+    "<form>",
+
+    "<img>",
+
+    "<div>"
+
+],
+
+key="forms_quiz"
+
+# )
+
+if quiz == "<form>":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+    CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Forms collect data.
+
+But how do we know when a user clicks a button,
+changes a value,
+or submits a form?
+
+👇
+
+Events & Event Handling
+
+Next Module:
+
+✅ Click Events
+
+✅ Input Events
+
+✅ Change Events
+
+✅ Mouse Events
+
+✅ Submit Events
+
+which will help us build Login Systems and Interactive Applications.
+""")
+
+
+# --------------------------------------------------
+# MODULE 3 : EVENTS & EVENT HANDLING
+# --------------------------------------------------
+
+st.title("⚡ Module 3 : Events & Event Handling")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand Events
+
+✅ Understand Event Handling
+
+✅ Work with Click Events
+
+✅ Work with Input Events
+
+✅ Work with Change Events
+
+✅ Work with Mouse Events
+
+✅ Work with Keyboard Events
+
+✅ Work with Submit Events
+
+✅ Connect Events with Real Applications
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ What is an Event?")
+
+st.markdown("""
+An Event is an action that occurs inside a webpage.
+
+Events are usually triggered by:
+
+👨 User Actions
+
+⌨ Keyboard Actions
+
+🖱 Mouse Actions
+
+📋 Form Submission
+
+📱 Device Actions
+
+Without Events, web pages cannot interact with users.
+""")
+
+st.markdown("""
+
+```text
+User Action
+
+↓
+
+Event Occurs
+
+↓
+
+JavaScript Executes
+
+↓
+
+Output Produced
+
+""")
+
+# --------------------------------------------------
+# REAL WORLD EXAMPLES
+# --------------------------------------------------
+
+st.header("2️⃣ Real World Examples")
+
+events_table = {
+
+"Scenario":[
+
+    "Click Login",
+
+    "Select Course",
+
+    "Type Name",
+
+    "Upload File",
+
+    "Submit Form",
+
+    "Hover Button"
+
+],
+
+"Event":[
+
+    "click",
+
+    "change",
+
+    "input",
+
+    "change",
+
+    "submit",
+
+    "mouseover"
+
+# ]
+
+# }
+
+st.table(events_table)
+
+# --------------------------------------------------
+# CLICK EVENT
+# --------------------------------------------------
+
+st.header("3️⃣ Click Event")
+
+st.markdown("""
+The Click Event occurs when the user clicks a button or element.
+""")
+
+st.code("""
+
+button.addEventListener(
+
+"click",
+
+function(){
+
+alert("Button Clicked");
+
+}
+
+);
+
+""", language="javascript")
+
+if st.button("Demo Click Event"):
+
+    st.success("Button Click Event Triggered")
+# --------------------------------------------------
+# INPUT EVENT
+# --------------------------------------------------
+
+st.header("4️⃣ Input Event")
+
+st.markdown("""
+The Input Event occurs whenever the user types something.
+""")
+
+st.code("""
+
+input.addEventListener(
+
+"input",
+
+function(){
+
+console.log(this.value);
+
+}
+
+);
+
+""", language="javascript")
+
+typing = st.text_input("Type Something")
+
+if typing:
+
+    st.info(f"You Typed : {typing}")
+# --------------------------------------------------
+# CHANGE EVENT
+# --------------------------------------------------
+
+st.header("5️⃣ Change Event")
+
+st.markdown("""
+Triggered when a value changes.
+""")
+
+st.code("""
+
+select.addEventListener(
+
+"change",
+
+function(){
+
+alert(this.value);
+
+}
+
+);
+
+""", language="javascript")
+
+course = st.selectbox(
+
+"Select Course",
+
+[
+
+    "BCA",
+
+    "BSc",
+
+    "MCA",
+
+    "MBA"
+
+# ]
+
+# )
+
+st.success(f"Selected : {course}")
+
+# --------------------------------------------------
+# MOUSE EVENTS
+# --------------------------------------------------
+
+st.header("6️⃣ Mouse Events")
+
+st.markdown("""
+Common Mouse Events:
+
+✅ mouseover
+
+✅ mouseout
+
+✅ mousemove
+
+✅ mousedown
+
+✅ mouseup
+""")
+
+st.code("""
+
+element.addEventListener(
+
+"mouseover",
+
+function(){
+
+console.log("Mouse Over");
+
+}
+
+);
+
+""", language="javascript")
+
+st.info("""
+Move your mouse over buttons,
+cards,
+images,
+menus
+
+to trigger mouse events.
+""")
+
+# --------------------------------------------------
+# KEYBOARD EVENTS
+# --------------------------------------------------
+
+st.header("7️⃣ Keyboard Events")
+
+st.markdown("""
+Keyboard Events occur when keys are pressed.
+""")
+
+keyboard_table = {
+
+"Event":[
+
+    "keydown",
+
+    "keyup",
+
+    "keypress"
+
+],
+
+"Purpose":[
+
+    "Key Pressed",
+
+    "Key Released",
+
+    "Character Typed"
+
+# ]
+
+# }
+
+st.table(keyboard_table)
+
+st.code("""
+
+document.addEventListener(
+
+"keydown",
+
+function(event){
+
+console.log(event.key);
+
+}
+
+);
+
+""", language="javascript")
+
+# --------------------------------------------------
+# DOUBLE CLICK
+# --------------------------------------------------
+
+st.header("8️⃣ Double Click Event")
+
+st.code("""
+
+element.addEventListener(
+
+"dblclick",
+
+function(){
+
+alert("Double Clicked");
+
+}
+
+);
+
+""", language="javascript")
+
+st.info("""
+Commonly used in:
+
+📁 File Explorer
+
+🖼 Image Viewers
+
+📊 Dashboards
+""")
+
+# --------------------------------------------------
+# FOCUS EVENT
+# --------------------------------------------------
+
+st.header("9️⃣ Focus Event")
+
+st.markdown("""
+Triggered when a user clicks inside an input field.
+""")
+
+st.code("""
+
+input.addEventListener(
+
+"focus",
+
+function(){
+
+this.style.background="yellow";
+
+}
+
+);
+
+""", language="javascript")
+
+# --------------------------------------------------
+# BLUR EVENT
+# --------------------------------------------------
+
+st.header("🔟 Blur Event")
+
+st.markdown("""
+Triggered when an input loses focus.
+""")
+
+st.code("""
+
+input.addEventListener(
+
+"blur",
+
+function(){
+
+console.log("Focus Lost");
+
+}
+
+);
+
+""", language="javascript")
+
+# --------------------------------------------------
+# SUBMIT EVENT
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Submit Event")
+
+st.markdown("""
+Most important event for forms.
+
+Used in:
+
+✅ Login
+
+✅ Registration
+
+✅ Booking
+
+✅ Payment
+
+✅ Service Requests
+""")
+
+st.code("""
+
+form.addEventListener(
+
+"submit",
+
+function(event){
+
+event.preventDefault();
+
+}
+
+);
+
+""", language="javascript")
+
+st.success("""
+Submit Event is the foundation of Login Systems.
+""")
+
+# --------------------------------------------------
+# EVENT FLOW
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Event Flow")
+
+st.markdown("""
+
+User Clicks Button
+
+↓
+
+Click Event
+
+↓
+
+JavaScript Function Executes
+
+↓
+
+Output Displayed
+
+""")
+
+# --------------------------------------------------
+# DOMAIN EXAMPLES
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Event Usage in Real Applications")
+
+domain_table = {
+
+"Application":[
+
+    "E-Commerce",
+
+    "Hospital",
+
+    "College",
+
+    "Travel",
+
+    "CRM"
+
+],
+
+"Event":[
+
+    "Add to Cart",
+
+    "Book Appointment",
+
+    "Submit Assignment",
+
+    "Book Ticket",
+
+    "Create Ticket"
+
+# ]
+
+# }
+
+st.table(domain_table)
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Classroom Activity")
+
+st.markdown("""
+Implement any 3 Events in your selected domain.
+
+Examples:
+
+Academic
+→ Submit Assignment
+
+Healthcare
+→ Book Appointment
+
+Travel
+→ Search Destination
+
+CRM
+→ Create Ticket
+
+Retail
+→ Add to Cart
+""")
+
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Create a form with:
+
+✅ Textbox
+
+✅ Dropdown
+
+✅ Button
+
+Implement:
+
+✅ Input Event
+
+✅ Change Event
+
+✅ Click Event
+""")
+
+# --------------------------------------------------
+# SELF CHECK QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+quiz = st.radio(
+
+"Which event occurs when a button is clicked?",
+
+[
+
+    "change",
+
+    "submit",
+
+    "click",
+
+    "input"
+
+],
+
+key="event_quiz"
+
+# )
+
+if quiz == "click":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+    SUMMARY
+# --------------------------------------------------
+
+st.header("📚 Module Summary")
+
+st.success("""
+
+You learned:
+
+✅ Click Event
+
+✅ Input Event
+
+✅ Change Event
+
+✅ Mouse Events
+
+✅ Keyboard Events
+
+✅ Focus Event
+
+✅ Blur Event
+
+✅ Submit Event
+
+Events make websites interactive.
+""")
+
+# --------------------------------------------------
+CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Events tell us WHEN something happens.
+
+But what if an operation takes time?
+
+Example:
+
+Fetch User Data
+
+↓
+
+Wait for Server
+
+↓
+
+Receive Response
+
+This leads us to:
+
+⏳ Asynchronous Programming
+
+⏳ Promises
+
+⏳ Async / Await
+
+which powers modern Full Stack Applications.
+""")
+# --------------------------------------------------
+# MODULE 4 : ASYNCHRONOUS JAVASCRIPT
+# --------------------------------------------------
+
+st.title("⏳ Module 4 : Async Programming, Promises & Async/Await")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand Synchronous Programming
+
+✅ Understand Asynchronous Programming
+
+✅ Work with setTimeout()
+
+✅ Understand Callbacks
+
+✅ Understand Promises
+
+✅ Use Async Functions
+
+✅ Use Await
+
+✅ Connect Async Programming with Full Stack Applications
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ What is Synchronous Programming?")
+
+st.markdown("""
+By default, JavaScript executes code line by line.
+
+Each statement waits for the previous statement to finish.
+""")
+
+st.code("""
+
+console.log("Step 1");
+
+console.log("Step 2");
+
+console.log("Step 3");
+
+""", language="javascript")
+
+st.success("""
+Output
+
+Step 1
+
+Step 2
+
+Step 3
+""")
+
+st.info("""
+This is called Synchronous Execution.
+""")
+
+# --------------------------------------------------
+# REAL WORLD ANALOGY
+# --------------------------------------------------
+
+st.header("2️⃣ Real World Analogy")
+
+st.markdown("""
+
+Imagine standing in a queue:
+
+Person 1
+
+↓
+
+Person 2
+
+↓
+
+Person 3
+
+↓
+
+Person 4
+
+Each person waits for the previous person.
+
+This is Synchronous Processing.
+""")
+
+# --------------------------------------------------
+# THE PROBLEM
+# --------------------------------------------------
+
+st.header("3️⃣ The Problem")
+
+st.markdown("""
+Some operations take time:
+
+🌐 API Requests
+
+📁 File Uploads
+
+🗄 Database Queries
+
+🤖 AI Responses
+
+📍 GPS Location
+
+If JavaScript waits for everything,
+the webpage becomes unresponsive.
+""")
+
+# --------------------------------------------------
+# SETTIMEOUT
+# --------------------------------------------------
+
+st.header("4️⃣ Introducing setTimeout()")
+
+st.code("""
+
+console.log("A");
+
+setTimeout(()=>{
+
+console.log("B");
+
+},3000);
+
+console.log("C");
+
+""", language="javascript")
+
+st.warning("""
+Predict the Output before checking below.
+""")
+
+with st.expander("Show Output"):
+
+        st.success("""
+
+A
+
+C
+
+B
+
+""")
+
+st.markdown("""
+Why?
+
+JavaScript does not wait for setTimeout().
+""")
+
+# --------------------------------------------------
+# VISUALIZATION
+# --------------------------------------------------
+
+st.header("5️⃣ Execution Flow")
+
+st.markdown("""
+
+```text
+A Printed
+
+↓
+
+Timer Started
+
+↓
+
+C Printed
+
+↓
+
+3 Seconds Completed
+
+↓
+
+B Printed
+
+""")
+
+# --------------------------------------------------
+# CALLBACK FUNCTIONS
+# --------------------------------------------------
+
+st.header("6️⃣ Callback Functions")
+
+st.markdown("""
+A Callback is a function passed into another function.
+""")
+
+st.code("""
+
+function greet(callback){
+
+console.log("Hello");
+
+callback();
+
+}
+
+greet(function(){
+
+console.log("Welcome");
+
+});
+
+""", language="javascript")
+
+st.success("""
+Output
+
+Hello
+
+Welcome
+""")
+
+# --------------------------------------------------
+# CALLBACK PROBLEM
+# --------------------------------------------------
+
+st.header("7️⃣ Callback Hell")
+
+st.markdown("""
+Multiple nested callbacks become difficult to read and maintain.
+""")
+
+st.code("""
+
+step1(function(){
+
+step2(function(){
+
+step3(function(){
+
+step4(function(){
+
+});
+
+});
+
+});
+
+});
+
+""", language="javascript")
+
+st.error("""
+This is known as Callback Hell.
+""")
+
+# --------------------------------------------------
+PROMISES
+# --------------------------------------------------
+
+st.header("8️⃣ Promises")
+
+st.markdown("""
+Promises provide a cleaner solution.
+
+A Promise represents a future result.
+""")
+
+st.code("""
+
+const myPromise =
+
+new Promise(
+
+(resolve,reject)=>{
+
+resolve("Success");
+
+}
+
+);
+
+""", language="javascript")
+
+st.info("""
+A Promise can be:
+
+Pending
+
+Fulfilled
+
+Rejected
+""")
+
+# --------------------------------------------------
+# PROMISE STATES
+# --------------------------------------------------
+
+st.header("9️⃣ Promise Lifecycle")
+
+st.markdown("""
+
+Pending
+
+↓
+
+Fulfilled
+
+OR
+
+Rejected
+
+""")
+
+# --------------------------------------------------
+# PROMISE EXAMPLE
+# --------------------------------------------------
+
+st.header("🔟 Promise Example")
+
+st.code("""
+
+const order =
+
+new Promise(
+
+(resolve,reject)=>{
+
+resolve("Pizza Delivered");
+
+}
+
+);
+
+order.then(
+
+(result)=>{
+
+console.log(result);
+
+}
+
+);
+
+""", language="javascript")
+
+st.success("""
+Output
+
+Pizza Delivered
+""")
+
+# --------------------------------------------------
+# REAL WORLD EXAMPLE
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Food Delivery Example")
+
+st.markdown("""
+
+Order Food
+
+↓
+
+Restaurant Prepares Food
+
+↓
+
+Delivery Partner Picks Up
+
+↓
+
+Food Delivered
+
+↓
+
+Promise Resolved
+
+""")
+
+# --------------------------------------------------
+# WHY ASYNC AWAIT?
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Why Async/Await?")
+
+st.markdown("""
+Promises are powerful but can become difficult to manage.
+
+Async/Await makes asynchronous code look like normal code.
+""")
+
+st.code("""
+
+async function loadData(){
+
+const result =
+
+await myPromise;
+
+console.log(result);
+
+}
+
+""", language="javascript")
+
+# --------------------------------------------------
+# ASYNC FUNCTION
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Async Function")
+
+st.code("""
+
+async function greet(){
+
+return "Hello";
+
+}
+
+""", language="javascript")
+
+st.info("""
+Async functions automatically return a Promise.
+""")
+
+# --------------------------------------------------
+AWAIT
+# --------------------------------------------------
+
+st.header("1️⃣4️⃣ Await Keyword")
+
+st.code("""
+
+const result =
+
+await myPromise;
+
+""", language="javascript")
+
+st.success("""
+Await means:
+
+"Wait until the Promise completes."
+""")
+
+# --------------------------------------------------
+# COMPLETE EXAMPLE
+# --------------------------------------------------
+
+st.header("1️⃣5️⃣ Complete Async/Await Example")
+
+st.code("""
+
+function getData(){
+
+return new Promise(
+
+(resolve)=>{
+
+setTimeout(()=>{
+
+resolve("Data Loaded");
+
+},3000);
+
+}
+
+);
+
+}
+
+async function load(){
+
+const result =
+
+await getData();
+
+console.log(result);
+
+}
+
+load();
+
+""", language="javascript")
+
+with st.expander("Expected Output"):
+
+    st.success("""
+
+(wait 3 seconds)
+
+Data Loaded
+
+""")
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Activity")
+
+st.markdown("""
+Think of 5 real-world situations where waiting is required.
+
+Examples:
+
+✓ Food Delivery
+
+✓ ATM Withdrawal
+
+✓ File Upload
+
+✓ AI Response
+
+✓ Ticket Booking
+""")
+
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Create a Promise that simulates:
+
+📦 Package Delivery
+
+Wait for 5 seconds
+
+Then display:
+
+"Package Delivered Successfully"
+""")
+
+# --------------------------------------------------
+QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+quiz = st.radio(
+
+"Which keyword pauses execution until a Promise completes?",
+
+[
+
+    "pause",
+
+    "stop",
+
+    "await",
+
+    "hold"
+
+],
+
+key="async_quiz"
+
+# )
+
+if quiz == "await":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+# FULL STACK CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 Why Is This Important?")
+
+st.markdown("""
+
+Future Topics Using Async/Await:
+
+✅ Fetch API
+
+✅ Express.js
+
+✅ MongoDB
+
+✅ React
+
+✅ Next.js
+
+✅ Authentication
+
+✅ AI APIs
+
+✅ Cloud Storage
+
+""")
+
+# --------------------------------------------------
+# LOGIN SYSTEM CONNECTION
+# --------------------------------------------------
+
+st.header("🔑 Login System Workflow")
+
+st.markdown("""
+
+User Clicks Login
+
+↓
+
+Send Request
+
+↓
+
+Server Checks Credentials
+
+↓
+
+Wait
+
+↓
+
+Response Received
+
+↓
+
+Display Result
+
+""")
+
+st.success("""
+This waiting period is handled using Async/Await.
+""")
+
+# --------------------------------------------------
+SUMMARY
+# --------------------------------------------------
+
+st.header("📚 Module Summary")
+
+st.success("""
+
+You learned:
+
+✅ Synchronous Programming
+
+✅ Asynchronous Programming
+
+✅ setTimeout()
+
+✅ Callback Functions
+
+✅ Callback Hell
+
+✅ Promises
+
+✅ Async Functions
+
+✅ Await
+
+These concepts are the foundation of:
+
+🌐 Fetch API
+
+🗄 Database Queries
+
+🤖 AI Applications
+
+🚀 Full Stack Development
+""")
+
+# --------------------------------------------------
+# NEXT MODULE
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Now that we know how to wait for data,
+
+we need to learn how to request data.
+
+Next Module:
+
+🌐 Fetch API
+
+🌐 GET Requests
+
+🌐 POST Requests
+
+🌐 JSON Data
+
+🌐 Real APIs
+
+🌐 Express Integration
+""")
+# Module 5 – Part 1: Fetch API & JSON Data Exchange
+
+This is where students finally understand:
+
+Browser
+#     ↓
+# Fetch API
+#     ↓
+Server
+#     ↓
+# JSON Response
+#     ↓
+Browser
+
+This module directly prepares them for:
+
+Express.js
+# Login Systems
+# REST APIs
+# Full Stack Development
+# --------------------------------------------------
+# MODULE 5 : FETCH API & JSON DATA EXCHANGE
+# --------------------------------------------------
+
+st.title("🌐 Module 5 : Fetch API & JSON Data Exchange")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand APIs
+
+✅ Understand Client-Server Communication
+
+✅ Understand Fetch API
+
+✅ Work with GET Requests
+
+✅ Work with POST Requests
+
+✅ Understand JSON Data Exchange
+
+✅ Connect Browser with Server
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ What is an API?")
+
+st.markdown("""
+API stands for:
+
+Application Programming Interface
+
+An API acts as a bridge between two applications.
+
+Examples:
+
+📦 Amazon Product API
+
+🌦 Weather API
+
+📍 Maps API
+
+🤖 AI API
+
+🎓 Student Portal API
+""")
+
+st.markdown("""
+
+```text
+Client
+
+↓
+
+API
+
+↓
+
+Server
+
+
+""")
+
+# --------------------------------------------------
+# REAL WORLD ANALOGY
+# --------------------------------------------------
+
+st.header("2️⃣ Restaurant Analogy")
+
+st.markdown("""
+
+Imagine visiting a restaurant.
+
+You don't enter the kitchen.
+
+Instead:
+
+Customer
+
+↓
+
+Waiter
+
+↓
+
+Kitchen
+
+↓
+
+Waiter
+
+↓
+
+Customer
+
+The Waiter acts like an API.
+""")
+
+# --------------------------------------------------
+# CLIENT SERVER MODEL
+# --------------------------------------------------
+
+st.header("3️⃣ Client-Server Architecture")
+
+st.markdown("""
+
+Browser (Client)
+
+↓
+
+Request
+
+↓
+
+Server
+
+↓
+
+Response
+
+↓
+
+Browser
+
+""")
+
+st.info("""
+Client = Browser
+
+Server = Express.js
+
+Communication = API
+""")
+
+# --------------------------------------------------
+# WHAT IS FETCH API?
+# --------------------------------------------------
+
+st.header("4️⃣ What is Fetch API?")
+
+st.markdown("""
+Fetch API allows JavaScript to communicate with servers.
+""")
+
+st.code("""
+
+fetch("https://example.com")
+
+""", language="javascript")
+
+st.success("""
+Fetch sends a request to a server.
+""")
+
+# --------------------------------------------------
+# SIMPLE FETCH
+# --------------------------------------------------
+
+st.header("5️⃣ Simple Fetch Example")
+
+st.code("""
+
+fetch(
+
+"https://jsonplaceholder.typicode.com/users"
+
+)
+
+.then(response => response.json())
+
+.then(data => console.log(data));
+
+""", language="javascript")
+
+st.markdown("""
+This requests user data from a server.
+""")
+
+# --------------------------------------------------
+# WHY JSON?
+# --------------------------------------------------
+
+st.header("6️⃣ Why JSON?")
+
+st.markdown("""
+
+JavaScript Object
+
+↓
+
+JSON
+
+↓
+
+Internet
+
+↓
+
+JSON
+
+↓
+
+JavaScript Object
+
+""")
+
+st.code("""
+
+{
+"name":"John",
+"course":"BCA"
+}
+
+""", language="json")
+
+# --------------------------------------------------
+# GET REQUEST
+# --------------------------------------------------
+
+st.header("7️⃣ GET Request")
+
+st.markdown("""
+GET is used to retrieve data.
+""")
+
+st.code("""
+
+fetch("/students")
+
+""", language="javascript")
+
+st.success("""
+GET = Read Data
+""")
+
+# --------------------------------------------------
+# REAL EXAMPLES
+# --------------------------------------------------
+
+st.header("8️⃣ GET Request Examples")
+
+examples = {
+
+"Application":[
+
+    "Student Portal",
+
+    "Amazon",
+
+    "Netflix",
+
+    "Hospital",
+
+    "Travel"
+
+],
+
+"GET Request":[
+
+    "Get Students",
+
+    "Get Products",
+
+    "Get Movies",
+
+    "Get Patients",
+
+    "Get Flights"
+
+# ]
+
+# }
+
+st.table(examples)
+
+# --------------------------------------------------
+# POST REQUEST
+# --------------------------------------------------
+
+st.header("9️⃣ POST Request")
+
+st.markdown("""
+POST sends data to a server.
+""")
+
+st.code("""
+
+fetch(
+
+"/login",
+
+{
+
+method:"POST"
+
+}
+
+)
+
+""", language="javascript")
+
+st.success("""
+POST = Send Data
+""")
+
+# --------------------------------------------------
+# LOGIN EXAMPLE
+# --------------------------------------------------
+
+st.header("🔟 Login Request Example")
+
+st.code("""
+
+fetch(
+
+"/login",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+username:"admin",
+
+password:"1234"
+
+})
+
+}
+
+);
+
+""", language="javascript")
+
+st.markdown("""
+
+Username
+
+↓
+
+Password
+
+↓
+
+JSON
+
+↓
+
+Server
+
+""")
+
+# --------------------------------------------------
+# SERVER RESPONSE
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ JSON Response")
+
+st.code("""
+
+{
+
+"success":true,
+
+"message":"Login Successful"
+
+}
+
+""", language="json")
+
+st.success("""
+Server sends JSON back to the browser.
+""")
+
+# --------------------------------------------------
+# RESPONSE PROCESSING
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Reading Response")
+
+st.code("""
+
+const response =
+
+await fetch("/login");
+
+const data =
+
+await response.json();
+
+console.log(data);
+
+""", language="javascript")
+
+st.markdown("""
+Response
+
+↓
+
+JSON
+
+↓
+
+JavaScript Object
+""")
+
+# --------------------------------------------------
+# COMPLETE FLOW
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Complete Flow")
+
+st.markdown("""
+
+User Clicks Login
+
+↓
+
+JavaScript Creates Object
+
+↓
+
+JSON.stringify()
+
+↓
+
+Fetch API
+
+↓
+
+Express Server
+
+↓
+
+Validation
+
+↓
+
+JSON Response
+
+↓
+
+response.json()
+
+↓
+
+Display Result
+
+""")
+
+# --------------------------------------------------
+# INTERACTIVE EXPLANATION
+# --------------------------------------------------
+
+st.header("1️⃣4️⃣ Request Types")
+
+request_type = st.selectbox(
+
+"Choose Request Type",
+
+[
+
+    "GET",
+
+    "POST",
+
+    "PUT",
+
+    "DELETE"
+
+# ]
+
+# )
+
+if request_type == "GET":
+
+    st.success("Used to Retrieve Data")
+
+elif request_type == "POST":
+
+    st.success("Used to Send Data")
+
+elif request_type == "PUT":
+
+    st.success("Used to Update Data")
+
+elif request_type == "DELETE":
+
+    st.success("Used to Delete Data")
+# --------------------------------------------------
+# REAL WORLD APPLICATIONS
+# --------------------------------------------------
+
+st.header("1️⃣5️⃣ Where is Fetch Used?")
+
+apps = {
+
+"Application":[
+
+    "Login System",
+
+    "Online Shopping",
+
+    "AI Chatbot",
+
+    "Food Delivery",
+
+    "Banking",
+
+    "Attendance System"
+
+# ]
+
+# }
+
+st.table(apps)
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Classroom Activity")
+
+st.markdown("""
+Identify where Fetch API would be used in:
+
+Student Portal
+E-Commerce Website
+Hospital System
+Travel Booking
+CRM Application
+""")
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Design the request and response for:
+
+📚 Course Registration
+
+Required:
+
+Student Name
+
+Course
+
+Semester
+
+Predict:
+
+Request JSON
+
+Response JSON
+""")
+
+# --------------------------------------------------
+QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+quiz = st.radio(
+
+"Which method is used to send data to a server?",
+
+[
+
+    "GET",
+
+    "POST",
+
+    "READ",
+
+    "FETCH"
+
+],
+
+key="fetch_quiz"
+
+# )
+
+if quiz == "POST":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+# FULL STACK CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 Connection to Express.js")
+
+st.markdown("""
+
+Browser
+
+↓
+
+Fetch API
+
+↓
+
+Express Route
+
+↓
+
+Process Request
+
+↓
+
+Send Response
+
+↓
+
+Browser Updates UI
+
+""")
+
+st.success("""
+This is the exact architecture used in Full Stack Applications.
+""")
+
+# --------------------------------------------------
+SUMMARY
+# --------------------------------------------------
+
+st.header("📚 Module Summary")
+
+st.success("""
+
+You learned:
+
+✅ APIs
+
+✅ Client-Server Architecture
+
+✅ Fetch API
+
+✅ GET Requests
+
+✅ POST Requests
+
+✅ JSON Data Exchange
+
+✅ Request-Response Cycle
+
+You are now ready to understand:
+
+🚀 Express.js
+
+🚀 Login Systems
+
+🚀 REST APIs
+
+🚀 Full Stack Applications
+""")
+
+# --------------------------------------------------
+# NEXT MODULE
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Before building complete Full Stack Applications,
+
+we should understand Browser Features.
+
+Next Module:
+
+🌍 Navigator API
+
+📍 Geolocation
+
+📋 Clipboard
+
+📶 Online Status
+
+🖥 User Agent
+
+and how they enhance web applications.
+""")
+# --------------------------------------------------
+# MODULE 6 : NAVIGATOR API & BROWSER STORAGE
+# --------------------------------------------------
+
+st.title("🌍 Module 6 : Navigator API, Cookies & Browser Storage")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand Navigator API
+
+✅ Access Browser Information
+
+✅ Work with Geolocation
+
+✅ Work with Clipboard API
+
+✅ Understand Online Status
+
+✅ Understand Cookies
+
+✅ Understand Local Storage
+
+✅ Understand Session Storage
+""")
+
+# --------------------------------------------------
+# INTRODUCTION
+# --------------------------------------------------
+
+st.header("1️⃣ What is Navigator API?")
+
+st.markdown("""
+Navigator API allows JavaScript to interact with browser features.
+
+Using Navigator API we can:
+
+📍 Get User Location
+
+📋 Access Clipboard
+
+📶 Detect Internet Status
+
+🖥 Identify Browser
+
+📱 Identify Device
+""")
+
+st.markdown("""
+
+```text
+Browser
+
+↓
+
+Navigator Object
+
+↓
+
+Browser Features
+
+""")
+
+# --------------------------------------------------
+# NAVIGATOR OBJECT
+# --------------------------------------------------
+
+st.header("2️⃣ Navigator Object")
+
+st.code("""
+
+console.log(navigator);
+
+""", language="javascript")
+
+st.info("""
+Navigator contains information about:
+
+Browser
+
+Operating System
+
+Internet Status
+
+Location
+
+Language
+
+Device Information
+""")
+
+# --------------------------------------------------
+# USER AGENT
+# --------------------------------------------------
+
+st.header("3️⃣ User Agent")
+
+st.markdown("""
+User Agent identifies the browser and operating system.
+""")
+
+st.code("""
+
+console.log(
+
+navigator.userAgent
+
+);
+
+""", language="javascript")
+
+st.success("""
+Examples:
+
+Chrome
+
+Safari
+
+Firefox
+
+Edge
+""")
+
+# --------------------------------------------------
+LANGUAGE
+# --------------------------------------------------
+
+st.header("4️⃣ Browser Language")
+
+st.code("""
+
+console.log(
+
+navigator.language
+
+);
+
+""", language="javascript")
+
+st.success("""
+Example:
+
+en-US
+
+en-IN
+
+ta-IN
+""")
+
+# --------------------------------------------------
+# ONLINE STATUS
+# --------------------------------------------------
+
+st.header("5️⃣ Online Status")
+
+st.markdown("""
+Detect whether the device is connected to the Internet.
+""")
+
+st.code("""
+
+console.log(
+
+navigator.onLine
+
+);
+
+""", language="javascript")
+
+st.success("""
+true
+
+false
+""")
+
+internet = st.radio(
+
+"Simulated Internet Status",
+
+[
+
+    "Connected",
+
+    "Disconnected"
+
+# ]
+
+# )
+
+if internet == "Connected":
+
+    st.success("🌐 Internet Available")
+
+else:
+
+st.error("❌ Internet Not Available")
+# --------------------------------------------------
+GEOLOCATION
+# --------------------------------------------------
+
+st.header("6️⃣ Geolocation API")
+
+st.markdown("""
+Used to obtain the user's current location.
+
+Examples:
+
+🚕 Uber
+
+🛵 Swiggy
+
+📦 Delivery Apps
+
+🏥 Emergency Services
+""")
+
+st.code("""
+
+navigator.geolocation
+.getCurrentPosition(
+
+(position)=>{
+
+console.log(
+
+position.coords.latitude
+
+);
+
+console.log(
+
+position.coords.longitude
+
+);
+
+}
+
+);
+
+""", language="javascript")
+
+st.markdown("""
+
+User
+
+↓
+
+Allow Location
+
+↓
+
+Latitude
+
+↓
+
+Longitude
+
+""")
+
+# --------------------------------------------------
+# GEOLOCATION APPLICATIONS
+# --------------------------------------------------
+
+st.header("7️⃣ Where Can We Use Geolocation?")
+
+apps = {
+
+"Domain":[
+
+    "Travel",
+
+    "Food Delivery",
+
+    "Healthcare",
+
+    "Tourism",
+
+    "Emergency"
+
+],
+
+"Usage":[
+
+    "Nearby Hotels",
+
+    "Nearby Restaurants",
+
+    "Nearby Hospitals",
+
+    "Nearby Attractions",
+
+    "Nearby Help Centers"
+
+# ]
+
+# }
+
+st.table(apps)
+
+# --------------------------------------------------
+# CLIPBOARD API
+# --------------------------------------------------
+
+st.header("8️⃣ Clipboard API")
+
+st.markdown("""
+Used to Copy and Paste content.
+""")
+
+st.code("""
+
+navigator.clipboard
+.writeText(
+
+"Hello World"
+
+);
+
+""", language="javascript")
+
+st.success("""
+Useful for:
+
+Booking IDs
+
+Referral Codes
+
+Coupon Codes
+
+Tracking Numbers
+""")
+
+# --------------------------------------------------
+COOKIES
+# --------------------------------------------------
+
+st.header("9️⃣ What are Cookies?")
+
+st.markdown("""
+Cookies store small pieces of information inside the browser.
+
+Examples:
+
+🍪 Remember Login
+
+🍪 User Preferences
+
+🍪 Shopping Cart
+
+🍪 Language Settings
+""")
+
+st.code("""
+
+document.cookie =
+
+"username=admin";
+
+""", language="javascript")
+
+st.success("""
+Cookies are stored in the browser.
+""")
+
+# --------------------------------------------------
+# COOKIE EXAMPLE
+# --------------------------------------------------
+
+st.header("🔟 Cookie Example")
+
+st.markdown("""
+
+User Logs In
+
+↓
+
+Cookie Created
+
+↓
+
+Browser Stores Cookie
+
+↓
+
+User Returns
+
+↓
+
+Login Remembered
+
+""")
+
+# --------------------------------------------------
+# LOCAL STORAGE
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Local Storage")
+
+st.markdown("""
+Local Storage stores data permanently.
+
+Data remains even after closing the browser.
+""")
+
+st.code("""
+
+localStorage.setItem(
+
+"name",
+
+"John"
+
+);
+
+""", language="javascript")
+
+st.code("""
+
+localStorage.getItem(
+
+"name"
+
+);
+
+""", language="javascript")
+
+st.success("""
+Data remains until manually removed.
+""")
+
+# --------------------------------------------------
+# LOCAL STORAGE EXAMPLE
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ Real World Example")
+
+st.markdown("""
+
+Theme Preference
+
+↓
+
+Store in Local Storage
+
+↓
+
+Open Website Again
+
+↓
+
+Theme Restored
+""")
+
+# --------------------------------------------------
+# SESSION STORAGE
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Session Storage")
+
+st.markdown("""
+Session Storage exists only during the current browser session.
+""")
+
+st.code("""
+
+sessionStorage.setItem(
+
+"course",
+
+"FSD"
+
+);
+
+""", language="javascript")
+
+st.code("""
+
+sessionStorage.getItem(
+
+"course"
+
+);
+
+""", language="javascript")
+
+st.success("""
+Removed automatically when browser tab closes.
+""")
+
+# --------------------------------------------------
+# STORAGE COMPARISON
+# --------------------------------------------------
+
+st.header("1️⃣4️⃣ Storage Comparison")
+
+comparison = {
+
+"Feature":[
+
+    "Cookies",
+
+    "Local Storage",
+
+    "Session Storage"
+
+],
+
+"Lifetime":[
+
+    "Configurable",
+
+    "Permanent",
+
+    "Current Session"
+
+],
+
+"Common Use":[
+
+    "Authentication",
+
+    "Preferences",
+
+    "Temporary Data"
+
+# ]
+
+# }
+
+st.table(comparison)
+
+# --------------------------------------------------
+# LOGIN SYSTEM CONNECTION
+# --------------------------------------------------
+
+st.header("1️⃣5️⃣ Login System Example")
+
+st.markdown("""
+
+User Logs In
+
+↓
+
+Username Stored
+
+↓
+
+Local Storage
+
+↓
+
+Dashboard Loads
+
+↓
+
+Welcome User
+
+""")
+
+st.code("""
+
+localStorage.setItem(
+
+"username",
+
+"admin"
+
+);
+
+""", language="javascript")
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Classroom Activity")
+
+st.markdown("""
+Identify where you can use:
+
+📍 Geolocation
+
+📋 Clipboard
+
+🍪 Cookies
+
+💾 Local Storage
+
+📦 Session Storage
+
+in your selected project domain.
+""")
+
+# --------------------------------------------------
+# MINI CHALLENGE
+# --------------------------------------------------
+
+st.header("🏆 Mini Challenge")
+
+st.markdown("""
+Design a Remember Me Login System.
+
+Requirements:
+
+✔ Username
+
+✔ Password
+
+✔ Remember Me Checkbox
+
+Store Username using:
+
+Local Storage
+""")
+
+# --------------------------------------------------
+QUIZ
+# --------------------------------------------------
+
+st.header("📝 Quick Quiz")
+
+quiz = st.radio(
+
+"Which storage survives browser restart?",
+
+[
+
+    "Session Storage",
+
+    "Local Storage",
+
+    "Clipboard",
+
+    "Cache"
+
+],
+
+key="storage_quiz"
+
+# )
+
+if quiz == "Local Storage":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+# FULL STACK CONNECTION
+# --------------------------------------------------
+
+st.header("🚀 Browser Features in Full Stack")
+
+st.markdown("""
+
+Examples:
+
+📍 Delivery Tracking
+
+📋 Copy Booking ID
+
+💾 Save Preferences
+
+🍪 Remember Login
+
+📶 Detect Connectivity
+
+These features improve User Experience.
+""")
+
+# --------------------------------------------------
+SUMMARY
+# --------------------------------------------------
+
+st.header("📚 Module Summary")
+
+st.success("""
+
+You learned:
+
+✅ Navigator API
+
+✅ User Agent
+
+✅ Browser Language
+
+✅ Online Status
+
+✅ Geolocation
+
+✅ Clipboard API
+
+✅ Cookies
+
+✅ Local Storage
+
+✅ Session Storage
+
+These concepts are widely used in modern web applications.
+""")
+
+# --------------------------------------------------
+# NEXT MODULE
+# --------------------------------------------------
+
+st.header("🚀 What's Next?")
+
+st.info("""
+Now we have learned:
+
+Objects
+
+Forms
+
+Events
+
+JSON
+
+Async/Await
+
+Fetch API
+
+Navigator API
+
+Storage
+
+Next:
+
+🔑 Complete Login System
+
+🔑 Express.js
+
+🔑 Client-Server Communication
+
+🔑 Full Stack Workflow
+
+where all concepts come together.
+""")
+# --------------------------------------------------
+# MODULE 7 : COMPLETE LOGIN SYSTEM
+# --------------------------------------------------
+
+st.title("🚀 Module 7 : Complete Login System & Full Stack Workflow")
+
+st.success("""
+Learning Outcomes
+
+✅ Understand Client-Server Architecture
+
+✅ Connect Frontend with Backend
+
+✅ Use Forms, Events and Objects Together
+
+✅ Use JSON Data Exchange
+
+✅ Use Fetch API
+
+✅ Use Async/Await
+
+✅ Understand Express.js Routes
+
+✅ Understand Full Stack Workflow
+""")
+
+# --------------------------------------------------
+# BIG PICTURE
+# --------------------------------------------------
+
+st.header("1️⃣ What Have We Learned So Far?")
+
+st.markdown("""
+
+```text
+JavaScript Objects
+        ↓
+Forms
+        ↓
+Events
+        ↓
+JSON
+        ↓
+Async/Await
+        ↓
+Fetch API
+        ↓
+Navigator API
+        ↓
+Storage
+        ↓
+Login System
+
+""")
+
+st.info("""
+The Login System is not a new concept.
+
+It is simply an application that combines everything you have learned.
+""")
+
+# --------------------------------------------------
+# LOGIN FORM
+# --------------------------------------------------
+
+st.header("2️⃣ Login Page")
+
+st.code("""
+
+<form id="loginForm">
+
+<input type="text" id="username">
+
+<input type="password" id="password">
+
+<button>
+
+Login
+
+</button> </form>
+
+""", language="html")
+
+st.success("""
+This is the User Interface (Frontend).
+""")
+
+# --------------------------------------------------
+# STEP 1
+# --------------------------------------------------
+
+st.header("3️⃣ Step 1 : User Enters Data")
+
+st.markdown("""
+
+Username
+
+↓
+
+Password
+
+↓
+
+Login Button
+
+""")
+
+# --------------------------------------------------
+# STEP 2
+# --------------------------------------------------
+
+st.header("4️⃣ Step 2 : Submit Event")
+
+st.code("""
+
+loginForm.addEventListener(
+
+"submit",
+
+function(event){
+
+event.preventDefault();
+
+}
+
+);
+
+""", language="javascript")
+
+st.info("""
+Submit Event is triggered when the user clicks Login.
+""")
+
+# --------------------------------------------------
+# STEP 3
+# --------------------------------------------------
+
+st.header("5️⃣ Step 3 : Read Form Data")
+
+st.code("""
+
+const username =
+
+document.getElementById("username").value;
+
+const password =
+
+document.getElementById("password").value;
+
+""", language="javascript")
+
+st.success("""
+JavaScript reads user input.
+""")
+
+# --------------------------------------------------
+# STEP 4
+# --------------------------------------------------
+
+st.header("6️⃣ Step 4 : Create Object")
+
+st.code("""
+
+const loginData = {
+
+username,
+
+password
+
+};
+
+""", language="javascript")
+
+st.markdown("""
+
+Form
+
+↓
+
+JavaScript Object
+
+""")
+
+# --------------------------------------------------
+# STEP 5
+# --------------------------------------------------
+
+st.header("7️⃣ Step 5 : Convert to JSON")
+
+st.code("""
+
+JSON.stringify(
+
+loginData
+
+);
+
+""", language="javascript")
+
+st.markdown("""
+
+{
+ "username":"admin",
+ "password":"1234"
+}
+
+""")
+
+# --------------------------------------------------
+# STEP 6
+# --------------------------------------------------
+
+st.header("8️⃣ Step 6 : Send Request")
+
+st.code("""
+
+const response =
+
+await fetch(
+
+"/login",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(loginData)
+
+}
+
+);
+
+""", language="javascript")
+
+st.success("""
+Browser sends request to the server.
+""")
+
+# --------------------------------------------------
+# CLIENT SERVER
+# --------------------------------------------------
+
+st.header("9️⃣ Client-Server Communication")
+
+st.markdown("""
+
+Browser
+
+↓
+
+Fetch API
+
+↓
+
+Express Server
+
+↓
+
+Response
+
+↓
+
+Browser
+
+""")
+
+# --------------------------------------------------
+# STEP 7
+# --------------------------------------------------
+
+st.header("🔟 Express Receives Request")
+
+st.code("""
+
+app.post(
+
+"/login",
+
+(req,res)=>{
+
+}
+
+);
+
+""", language="javascript")
+
+st.success("""
+Express listens for requests.
+""")
+
+# --------------------------------------------------
+# STEP 8
+# --------------------------------------------------
+
+st.header("1️⃣1️⃣ Validate Credentials")
+
+st.code("""
+
+if(
+
+username==="admin"
+
+&&
+
+password==="1234"
+
+){
+
+// Success
+
+}
+
+""", language="javascript")
+
+st.info("""
+Server checks user credentials.
+""")
+
+# --------------------------------------------------
+# STEP 9
+# --------------------------------------------------
+
+st.header("1️⃣2️⃣ JSON Response")
+
+st.code("""
+
+res.json({
+
+success:true,
+
+message:"Login Successful"
+
+});
+
+""", language="javascript")
+
+st.markdown("""
+
+{
+ "success":true,
+ "message":"Login Successful"
+}
+
+""")
+
+# --------------------------------------------------
+# STEP 10
+# --------------------------------------------------
+
+st.header("1️⃣3️⃣ Browser Receives Response")
+
+st.code("""
+
+const data =
+
+await response.json();
+
+""", language="javascript")
+
+st.success("""
+JSON becomes a JavaScript Object again.
+""")
+
+# --------------------------------------------------
+# STEP 11
+# --------------------------------------------------
+
+st.header("1️⃣4️⃣ Update User Interface")
+
+st.code("""
+
+if(data.success){
+
+message.innerHTML =
+
+"Login Successful";
+
+}
+
+""", language="javascript")
+
+st.markdown("""
+
+Response
+
+↓
+
+DOM Update
+
+↓
+
+Message Displayed
+
+""")
+
+# --------------------------------------------------
+# COMPLETE FLOW
+# --------------------------------------------------
+
+st.header("1️⃣5️⃣ Complete Login Workflow")
+
+st.markdown("""
+
+User Opens Website
+
+↓
+
+Enters Username
+
+↓
+
+Enters Password
+
+↓
+
+Clicks Login
+
+↓
+
+Submit Event
+
+↓
+
+Create Object
+
+↓
+
+JSON
+
+↓
+
+Fetch API
+
+↓
+
+Express Server
+
+↓
+
+Validation
+
+↓
+
+JSON Response
+
+↓
+
+Response Received
+
+↓
+
+DOM Updated
+
+↓
+
+Success Message
+
+""")
+
+# --------------------------------------------------
+# LOCAL STORAGE
+# --------------------------------------------------
+
+st.header("1️⃣6️⃣ Remember Logged-In User")
+
+st.code("""
+
+localStorage.setItem(
+
+"username",
+
+username
+
+);
+
+""", language="javascript")
+
+st.success("""
+Used for Remember Me functionality.
+""")
+
+# --------------------------------------------------
+DASHBOARD
+# --------------------------------------------------
+
+st.header("1️⃣7️⃣ Dashboard Example")
+
+st.code("""
+
+const username =
+
+localStorage.getItem(
+
+"username"
+
+);
+
+""", language="javascript")
+
+st.markdown("""
+
+Welcome Admin
+
+""")
+
+# --------------------------------------------------
+# REAL WORLD APPLICATIONS
+# --------------------------------------------------
+
+st.header("1️⃣8️⃣ Where Is This Used?")
+
+applications = {
+
+"Application":[
+
+"College Portal",
+
+"Amazon",
+
+"Netflix",
+
+"Instagram",
+
+"Hospital System",
+
+"CRM System"
+
+],
+
+"Purpose":[
+
+"Student Login",
+
+"Customer Login",
+
+"Subscriber Login",
+
+"User Login",
+
+"Doctor Login",
+
+"Employee Login"
+
+# ]
+
+# }
+
+st.table(applications)
+
+# --------------------------------------------------
+ACTIVITY
+# --------------------------------------------------
+
+st.header("🎯 Activity")
+
+st.markdown("""
+Create a Login System for your domain.
+
+Examples:
+
+Academic Portal
+
+Hospital Portal
+
+Travel Portal
+
+CRM Portal
+
+E-Commerce Portal
+
+Use:
+
+✅ Form
+
+✅ Events
+
+✅ Object
+
+✅ JSON
+
+✅ Fetch API
+
+✅ Async/Await
+""")
+
+# --------------------------------------------------
+# MINI PROJECT
+# --------------------------------------------------
+
+st.header("🏆 Mini Project")
+
+st.markdown("""
+Build:
+
+Student Login Portal
+
+Features:
+
+✔ Login Form
+
+✔ Validation
+
+✔ Local Storage
+
+✔ Dashboard
+
+✔ Logout Button
+
+✔ Responsive Design
+
+✔ Tailwind CSS
+""")
+
+# --------------------------------------------------
+# FULL STACK ROADMAP
+# --------------------------------------------------
+
+st.header("🚀 Full Stack Learning Roadmap")
+
+st.markdown("""
+
+HTML5
+
+↓
+
+Tailwind CSS
+
+↓
+
+JavaScript
+
+↓
+
+Objects
+
+↓
+
+Forms
+
+↓
+
+Events
+
+↓
+
+JSON
+
+↓
+
+Async/Await
+
+↓
+
+Fetch API
+
+↓
+
+Navigator API
+
+↓
+
+Express.js
+
+↓
+
+MongoDB
+
+↓
+
+React
+
+↓
+
+Next.js
+
+↓
+
+Authentication
+
+↓
+
+AI Integration
+
+↓
+
+Full Stack Projects
+
+""")
+
+# --------------------------------------------------
+# FINAL QUIZ
+# --------------------------------------------------
+
+st.header("📝 Final Quiz")
+
+quiz = st.radio(
+
+"Which technology sends requests from Browser to Server?",
+
+[
+
+"HTML",
+
+"CSS",
+
+"Fetch API",
+
+"Tailwind"
+
+],
+
+key="final_quiz"
+
+# )
+
+if quiz == "Fetch API":
+
+    st.success("✅ Correct")
+# --------------------------------------------------
+# FINAL MESSAGE
+# --------------------------------------------------
+
+st.header("🎉 Congratulations")
+
+st.success("""
+You have completed:
+
+✅ JavaScript Objects
+
+✅ Forms
+
+✅ Events
+
+✅ JSON
+
+✅ Async/Await
+
+✅ Fetch API
+
+✅ Navigator API
+
+✅ Browser Storage
+
+✅ Login System Workflow
+
+You are now ready to learn:
+
+🚀 Express.js
+
+🚀 REST APIs
+
+🚀 MongoDB
+
+🚀 React
+
+🚀 Full Stack Development
+""")
