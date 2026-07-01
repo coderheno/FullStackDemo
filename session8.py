@@ -1679,13 +1679,13 @@ st.markdown("---")
 
 st.header("🎮 Live Demonstration")
 
-name=st.text_input("Student Name")
+name=st.text_input("Student Name", key="live_demo_student_name")
 
-age=st.number_input("Age",18,60)
+age=st.number_input("Age",18,60, key="live_demo_age")
 
-dept=st.text_input("Department")
+dept=st.text_input("Department", key="live_demo_department")
 
-if st.button("Create Object"):
+if st.button("Create Object", key="live_demo_create_object"):
 
     st.json({
 
@@ -2732,21 +2732,23 @@ st.markdown("---")
 
 st.header("🎮 Interactive Form Demo")
 
-name=st.text_input("Student Name")
+name=st.text_input("Student Name", key="form_demo_student_name")
 
-email=st.text_input("Email")
+email=st.text_input("Email", key="form_demo_email")
 
-age=st.number_input("Age",18,60)
+age=st.number_input("Age",18,60, key="form_demo_age")
 
 course=st.selectbox(
 
 "Course",
 
-["BCA","MCA","BSc","MSc"]
+["BCA","MCA","BSc","MSc"],
+
+key="form_demo_course"
 
 )
 
-if st.button("Submit"):
+if st.button("Submit", key="form_demo_submit"):
 
     st.success("Form Submitted Successfully")
 
@@ -3499,9 +3501,9 @@ st.markdown("---")
 
 st.header("📨 Submit Event")
 
-name=st.text_input("Name")
+name=st.text_input("Name", key="submit_event_name")
 
-if st.button("Submit Form"):
+if st.button("Submit Form", key="submit_event_submit_form"):
 
     st.success(
 
@@ -4281,7 +4283,7 @@ q=st.radio(
 
 )
 
-if st.button("Check"):
+if st.button("Check", key="check_button_promise"):
 
     if q=="Waits for Promise":
 
@@ -5599,11 +5601,11 @@ st.markdown("---")
 
 st.header("🎮 Interactive Demonstration")
 
-name=st.text_input("Name")
+name=st.text_input("Name", key="interactive_demo_name")
 
-age=st.number_input("Age",18,60)
+age=st.number_input("Age",18,60, key="interactive_demo_age")
 
-dept=st.text_input("Department")
+dept=st.text_input("Department", key="interactive_demo_department")
 
 if st.button("Convert"):
 
@@ -7975,7 +7977,7 @@ answer=st.radio(
 
 )
 
-if st.button("Check"):
+if st.button("Check", key="check_button_online"):
 
     if answer=="onLine":
 
