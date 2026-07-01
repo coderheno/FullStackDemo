@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Header -->
+
+    <header class="bg-blue-700 text-white">
+
+        <div class="container mx-auto flex justify-between items-center p-4">
+
+            <h1 class="text-2xl font-bold">
+
+                Express.js Dashboard
+
+            </h1>
+
+            <button
+
+                id="logout"
+
+                class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+
+    <main class="container mx-auto mt-10">
+
+        <div class="bg-white shadow-lg rounded-lg p-8">
+
+            <h2 class="text-3xl font-bold text-green-600">
+
+                Welcome!
+
+            </h2>
+
+            <p class="mt-4 text-gray-700">
+
+                Login Successful.
+
+            </p>
+
+            <p class="mt-2 text-gray-700">
+
+                Welcome to the Express.js Dashboard.
+
+            </p>
+
+        </div>
+
+        <!-- Feature Cards -->
+
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+
+            <div class="bg-white shadow rounded p-6">
+
+                <h3 class="text-xl font-bold text-blue-700">
+
+                    Profile
+
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+
+                    View and manage your profile.
+
+                </p>
+
+            </div>
+
+            <div class="bg-white shadow rounded p-6">
+
+                <h3 class="text-xl font-bold text-green-700">
+
+                    Courses
+
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+
+                    Access available learning resources.
+
+                </p>
+
+            </div>
+
+            <div class="bg-white shadow rounded p-6">
+
+                <h3 class="text-xl font-bold text-purple-700">
+
+                    Reports
+
+                </h3>
+
+                <p class="mt-2 text-gray-600">
+
+                    View your recent activities.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="bg-gray-900 text-white text-center p-4 mt-10">
+
+        © 2026 Full Stack Development | CHRIST (Deemed to be University)
+
+    </footer>
+
+    <script>
+
+        document
+        .getElementById("logout")
+        .addEventListener("click",function(){
+
+            alert("Logged Out Successfully");
+
+            window.location.href="/";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

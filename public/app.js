@@ -1,67 +1,170 @@
+// ======================================================
+// Registration Form
+// ======================================================
+
+document
+.getElementById("registerForm")
+.addEventListener("submit", async function(event){
+
+    // Prevent Page Refresh
+
+    event.preventDefault();
+
+    // Read Registration Details
+
+    const email =
+    document.getElementById("regEmail").value;
+
+    const password =
+    document.getElementById("regPassword").value;
+
+    // Send Data to Express Server
+
+    const response = await fetch("/register",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            email:email,
+            password:password
+
+        })
+
+    });
+
+    // Read JSON Response
+
+    const data = await response.json();
+
+    // Display Registration Message
+
+    const registerMessage =
+    document.getElementById("registerMessage");
+
+    if(data.success){
+
+        registerMessage.innerHTML = data.message;
+
+        registerMessage.className =
+        "mt-4 text-center font-bold text-green-600";
+
+        // Popup Message
+
+        alert(
+            "Registration Successful!\n\n" +
+            "Your credentials have been stored temporarily in the Express Server Memory.\n\n" +
+            "Please login using the same Email and Password."
+        );
+
+        // Clear Registration Form
+
+        document.getElementById("registerForm").reset();
+
+        // Move Cursor to Login Email
+
+        document.getElementById("loginEmail").focus();
+
+    }
+
+    else{
+
+        registerMessage.innerHTML = data.message;
+
+        registerMessage.className =
+        "mt-4 text-center font-bold text-red-600";
+
+    }
+
+});
+
+
+// ======================================================
+// Login Form
+// ======================================================
+
 document
 .getElementById("loginForm")
-.addEventListener(
+.addEventListener("submit", async function(event){
 
-"submit",
+    // Prevent Page Refresh
 
-async function(event){
+    event.preventDefault();
 
-event.preventDefault();
+    // Read Login Details
 
-const username =
-document.getElementById("username").value;
+    const email =
+    document.getElementById("loginEmail").value;
 
-const password =
-document.getElementById("password").value;
+    const password =
+    document.getElementById("loginPassword").value;
 
-const response =
-await fetch(
+    // Send Login Request
 
-"/login",
+    const response = await fetch("/login",{
 
-{
-method:"POST",
+        method:"POST",
 
-headers:{
-"Content-Type":"application/json"
-},
+        headers:{
+            "Content-Type":"application/json"
+        },
 
-body:JSON.stringify({
+        body:JSON.stringify({
 
-username,
-password
+            email:email,
+            password:password
 
-})
+        })
 
-}
+    });
 
-);
+    // Read Server Response
 
-const data =
-await response.json();
+    const data = await response.json();
 
-const msg =
-document.getElementById("message");
+    // Display Login Message
 
-if(data.success){
+    const loginMessage =
+    document.getElementById("loginMessage");
 
-msg.innerHTML =
-data.message;
+    if(data.success){
 
-msg.className =
-"text-green-600 mt-4 text-center";
+        loginMessage.innerHTML = data.message;
 
-}
-else{
+        loginMessage.className =
+        "mt-4 text-center font-bold text-green-600";
 
-msg.innerHTML =
-data.message;
+        alert(
+            "Login Successful!\n\n" +
+            "Welcome to Express.js Dashboard."
+        );
 
-msg.className =
-"text-red-600 mt-4 text-center";
+        // Wait for 1 Second
 
-}
+        setTimeout(function(){
 
-}
+            window.location.href="/dashboard";
 
-);
+        },1000);
+
+    }
+
+    else{
+
+        loginMessage.innerHTML = data.message;
+
+        loginMessage.className =
+        "mt-4 text-center font-bold text-red-600";
+
+        alert(
+            "Login Failed!\n\n" +
+            "Invalid Email or Password."
+        );
+
+    }
+
+});
