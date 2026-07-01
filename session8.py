@@ -1563,7 +1563,9 @@ option=st.selectbox(
 
 "E-Commerce"
 
-]
+],
+
+key="choose_domain_1"
 
 )
 
@@ -1801,7 +1803,7 @@ q=st.radio(
 
 )
 
-if st.button("Check Answer"):
+if st.button("Check Answer", key="check_answer_current_object"):
 
     if q=="this":
 
@@ -2151,7 +2153,7 @@ q1=st.radio(
 
 )
 
-if st.button("Check MCQ 1"):
+if st.button("Check MCQ 1", key="check_mcq_1"):
 
     if q1=="Key-Value Pairs":
 
@@ -2181,7 +2183,7 @@ q2=st.radio(
 
 )
 
-if st.button("Check MCQ 2"):
+if st.button("Check MCQ 2", key="check_mcq_2"):
 
     if q2=="Dot Notation":
 
@@ -2211,7 +2213,7 @@ q3=st.radio(
 
 )
 
-if st.button("Check MCQ 3"):
+if st.button("Check MCQ 3", key="check_mcq_3"):
 
     if q3=="this":
 
@@ -2958,9 +2960,9 @@ st.markdown("---")
 
 st.header("🎮 Simple Validation")
 
-user=st.text_input("Enter Username")
+user=st.text_input("Enter Username", key="validate_username")
 
-if st.button("Validate"):
+if st.button("Validate", key="validate_button"):
 
     if user=="":
 
@@ -3453,7 +3455,7 @@ alert("Button Clicked");
 
 """,language="javascript")
 
-if st.button("Demo Click Event"):
+if st.button("Demo Click Event", key="demo_click_event"):
 
     st.success("Click Event Triggered")
 
@@ -3465,7 +3467,7 @@ st.markdown("---")
 
 st.header("⌨ Input Event")
 
-text=st.text_input("Type Something")
+text=st.text_input("Type Something", key="input_event_text")
 
 if text!="":
 
@@ -3483,7 +3485,9 @@ course=st.selectbox(
 
 "Select Course",
 
-["BCA","MCA","MBA"]
+["BCA","MCA","MBA"],
+
+key="select_course_event"
 
 )
 
@@ -3983,7 +3987,7 @@ st.markdown("---")
 
 st.header("🎮 Simulation")
 
-if st.button("Run Synchronous Example"):
+if st.button("Run Synchronous Example", key="run_sync_example"):
 
     st.write("Step 1")
 
@@ -3995,7 +3999,7 @@ if st.button("Run Synchronous Example"):
 
     st.write("Step 3")
 
-if st.button("Run Async Simulation"):
+if st.button("Run Async Simulation", key="run_async_simulation"):
 
     progress=st.progress(0)
 
@@ -4617,13 +4621,13 @@ st.markdown("---")
 
 st.header("🎮 Object → JSON")
 
-name=st.text_input("Name")
+name=st.text_input("Name", key="object_json_3_name")
 
-age=st.number_input("Age",18,60)
+age=st.number_input("Age",18,60, key="object_json_3_age")
 
-course=st.text_input("Course")
+course=st.text_input("Course", key="object_json_3_course")
 
-if st.button("Convert to JSON"):
+if st.button("Convert to JSON", key="object_json_3_convert"):
 
     student={
 
@@ -4739,7 +4743,9 @@ choice=st.selectbox(
 
 "E-Commerce"
 
-]
+],
+
+key="choose_example_1"
 
 )
 
@@ -5105,13 +5111,13 @@ st.markdown("---")
 
 st.header("🎮 Object → JSON")
 
-name=st.text_input("Name")
+name=st.text_input("Name", key="object_json_4_name")
 
-age=st.number_input("Age",18,60)
+age=st.number_input("Age",18,60, key="object_json_4_age")
 
-course=st.text_input("Course")
+course=st.text_input("Course", key="object_json_4_course")
 
-if st.button("Convert to JSON"):
+if st.button("Convert to JSON", key="object_json_4_convert"):
 
     student={
 
@@ -5227,7 +5233,9 @@ choice=st.selectbox(
 
 "E-Commerce"
 
-]
+],
+
+key="choose_example_2"
 
 )
 
@@ -5607,7 +5615,7 @@ age=st.number_input("Age",18,60, key="interactive_demo_age")
 
 dept=st.text_input("Department", key="interactive_demo_department")
 
-if st.button("Convert"):
+if st.button("Convert", key="convert_interactive_demo"):
 
     obj={
 
@@ -5889,7 +5897,7 @@ q=st.radio(
 
 )
 
-if st.button("Check Answer"):
+if st.button("Check Answer", key="check_answer_json_parse"):
 
     if q=="JSON.stringify()":
 
@@ -6272,9 +6280,9 @@ st.markdown("---")
 
 st.header("🎮 Request Simulation")
 
-email=st.text_input("Email")
+email=st.text_input("Email", key="request_sim_email")
 
-password=st.text_input("Password")
+password=st.text_input("Password", key="request_sim_password")
 
 if st.button("Send Request"):
 
@@ -6698,7 +6706,7 @@ st.markdown("---")
 
 st.header("🎮 Browser Communication Simulation")
 
-if st.button("Start Simulation"):
+if st.button("Start Simulation", key="start_communication_simulation"):
 
     progress=st.progress(0)
 
@@ -7300,7 +7308,7 @@ answer=st.radio(
 
 )
 
-if st.button("Check Answer"):
+if st.button("Check Answer", key="check_answer_network"):
 
     if answer=="Network":
 
@@ -7811,7 +7819,9 @@ browser=st.selectbox(
 
 "Safari"
 
-]
+],
+
+key="browser_select"
 
 )
 
@@ -7831,7 +7841,9 @@ platform=st.selectbox(
 
 "iOS"
 
-]
+],
+
+key="platform_select"
 
 )
 
@@ -7843,7 +7855,7 @@ online=st.radio(
 
 )
 
-if st.button("Show Browser Information"):
+if st.button("Show Browser Information", key="show_browser_info"):
 
     st.json({
 
@@ -8640,7 +8652,7 @@ answer=st.radio(
 
 )
 
-if st.button("Check Answer"):
+if st.button("Check Answer", key="check_answer_cookie"):
 
     if answer=="Cookie":
 
@@ -9071,7 +9083,7 @@ choice=st.radio(
 
 )
 
-if st.button("Show Result"):
+if st.button("Show Result", key="show_result"):
 
     if choice=="JSON":
 
@@ -9225,7 +9237,7 @@ answer=st.radio(
 
 )
 
-if st.button("Check Answer"):
+if st.button("Check Answer", key="check_answer_json"):
 
     if answer=="JSON":
 
